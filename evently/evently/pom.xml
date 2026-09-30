@@ -88,7 +88,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
 
-            <!-- Copy docs frontend into Spring Boot static resources -->
+            <!-- Copy frontend into Spring Boot static resources -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
@@ -105,15 +105,18 @@
 
                         <configuration>
 
-                            <!-- Spring Boot static resource location -->
+                            <!-- IMPORTANT:
+                                 Frontend must go inside
+                                 target/classes/static
+                            -->
                             <outputDirectory>
-                                ${project.build.outputDirectory}
+                                ${project.build.outputDirectory}/static
                             </outputDirectory>
 
                             <resources>
                                 <resource>
 
-                                    <!-- Your frontend folder -->
+                                    <!-- Frontend folder -->
                                     <directory>
                                         ${project.basedir}/docs
                                     </directory>
