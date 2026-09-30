@@ -20,9 +20,6 @@ public class CorsConfig {
 
         return new WebMvcConfigurer() {
 
-            // ================================
-            // AUTHORIZATION INTERCEPTOR
-            // ================================
             @Override
             public void addInterceptors(InterceptorRegistry registry) {
 
@@ -35,17 +32,13 @@ public class CorsConfig {
                         );
             }
 
-            // ================================
-            // CORS CONFIGURATION
-            // ================================
             @Override
             public void addCorsMappings(CorsRegistry registry) {
 
                 registry.addMapping("/**")
                         .allowedOrigins(
                                 "http://127.0.0.1:5500",
-                                "http://localhost:5500",
-                                "https://evently-production-a873.up.railway.app"
+                                "http://localhost:5500"
                         )
                         .allowedMethods(
                                 "GET",
