@@ -82,9 +82,51 @@
     <build>
         <plugins>
 
+            <!-- Spring Boot -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
+            <!-- Copy docs frontend into Spring Boot static resources -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.3.1</version>
+
+                <executions>
+                    <execution>
+                        <id>copy-frontend</id>
+                        <phase>process-resources</phase>
+
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+
+                        <configuration>
+
+                            <!-- Spring Boot static resource location -->
+                            <outputDirectory>
+                                ${project.build.outputDirectory}
+                            </outputDirectory>
+
+                            <resources>
+                                <resource>
+
+                                    <!-- Your frontend folder -->
+                                    <directory>
+                                        ${project.basedir}/docs
+                                    </directory>
+
+                                    <filtering>false</filtering>
+
+                                </resource>
+                            </resources>
+
+                        </configuration>
+                    </execution>
+                </executions>
+
             </plugin>
 
         </plugins>
