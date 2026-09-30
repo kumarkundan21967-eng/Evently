@@ -21,6 +21,9 @@ public class CorsConfig {
 
         return new WebMvcConfigurer() {
 
+            // ==============================
+            // API AUTHORIZATION
+            // ==============================
             @Override
             public void addInterceptors(InterceptorRegistry registry) {
 
@@ -33,6 +36,9 @@ public class CorsConfig {
                         );
             }
 
+            // ==============================
+            // CORS
+            // ==============================
             @Override
             public void addCorsMappings(CorsRegistry registry) {
 
@@ -55,15 +61,17 @@ public class CorsConfig {
                         .maxAge(3600);
             }
 
+            // ==============================
+            // STATIC FILES
+            // ==============================
             @Override
             public void addResourceHandlers(ResourceHandlerRegistry registry) {
 
-                registry.addResourceHandler("/**")
+                registry.addResourceHandler(
+                                "/**"
+                        )
                         .addResourceLocations(
-                                "classpath:/static/",
-                                "classpath:/public/",
-                                "classpath:/resources/",
-                                "classpath:/META-INF/resources/"
+                                "classpath:/static/"
                         );
             }
         };
