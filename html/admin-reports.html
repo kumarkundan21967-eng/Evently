@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports | Evently Admin</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="admin-pages.css">
+</head>
+<body>
+<div class="dashboard-shell">
+        <aside class="sidebar">
+            <a class="dashboard-logo" href="index.html"><img src="logo.png" alt="Evently"> Evently</a>
+            <p class="sidebar-label">Admin menu</p>
+            <a class="sidebar-link" href="admin-dashboard.html">Overview</a>
+            <a class="sidebar-link" href="admin-users.html">User management</a>
+            <a class="sidebar-link" href="admin-approvals.html">Event approvals</a>
+            <a class="sidebar-link" href="admin-settings.html">Settings</a>
+            <a class="sidebar-link" href="admin-activity.html">Activity log</a>
+            <a class="sidebar-link" href="admin-reports.html">Reports</a>
+            <a class="sidebar-link logout" href="login.html" data-logout>Log out</a>
+        </aside>
+    <main class="dashboard-main">
+        <header class="dashboard-header"><div><span class="dashboard-eyebrow">Admin dashboard</span><h1>Run the room.</h1><p class="dashboard-subtitle">Keep Evently welcoming, useful, and moving.</p></div><div class="profile-chip"><span class="profile-dot"></span><span data-user-name>Admin</span></div></header>
+        <div class="admin-grid single-admin-page">
+            <section
+                class="dashboard-panel admin-panel reports-panel"
+            >
+
+                <div class="panel-heading">
+
+                    <div>
+
+                        <span class="panel-kicker">
+                            Reports
+                        </span>
+
+                        <h2>
+                            Quick exports
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <p>
+                    Download a snapshot of users, events,
+                    or attendance for your records.
+                </p>
+
+
+                <div class="report-actions">
+
+                    <button
+                        class="admin-action report-button"
+                        type="button"
+                        onclick="downloadUsersReport()"
+                    >
+                        Users report
+                    </button>
+
+
+                    <button
+                        class="admin-action report-button"
+                        type="button"
+                        onclick="downloadEventsReport()"
+                    >
+                        Events report
+                    </button>
+
+                </div>
+
+            </section>
+            <section
+                class="dashboard-panel admin-panel"
+            >
+
+                <div class="panel-heading">
+
+                    <div>
+
+                        <span class="panel-kicker">
+                            Statistics
+                        </span>
+
+                        <h2>
+                            Platform pulse
+                        </h2>
+
+                    </div>
+
+                    <span class="badge">
+                        Live
+                    </span>
+
+                </div>
+
+
+                <div class="report-stat-grid" id="reportStatistics" aria-live="polite">
+                    <div><span>Events approved</span><strong id="reportApprovedEvents">—</strong></div>
+                    <div><span>Tickets booked</span><strong id="reportTicketsSold">—</strong></div>
+                    <div><span>Bookings</span><strong id="reportBookings">—</strong></div>
+                    <div><span>Unique attendees</span><strong id="reportAttendees">—</strong></div>
+                    <div><span>Booking value (demo)</span><strong id="reportBookingValue">—</strong></div>
+                </div>
+
+            </section>
+        </div>
+    </main>
+</div>
+<script src="api-client.js"></script><script src="admin-pages.js"></script>
+<!-- <script src="api-client.js"></script><script src="dashboard.js"></script> -->
+</body>
+</html>
+

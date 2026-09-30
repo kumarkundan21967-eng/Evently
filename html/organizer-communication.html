@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Communication | Evently</title>
+
+    <link rel="stylesheet" href="organizer-pages.css">
+</head>
+
+<body>
+
+    <div class="org-shell">
+
+        <!-- Sidebar -->
+        <aside class="org-side">
+
+            <!-- Logo -->
+            <a class="org-logo" href="index.html">
+                <img src="logo.png" alt="Evently">
+                Evently
+            </a>
+
+            <!-- Navigation Label -->
+            <span class="org-label">
+                Organizer studio
+            </span>
+
+            <!-- Navigation -->
+            <nav class="org-nav">
+
+                <a href="organizer-dashboard.html">
+                    Overview
+                </a>
+
+                <a href="organizer-events.html">
+                    Manage events
+                </a>
+
+                <a href="organizer-create-event.html">
+                    Create event
+                </a>
+
+                <a href="organizer-tickets.html">
+                    Tickets
+                </a>
+
+                <a
+                    class="active"
+                    href="organizer-communication.html"
+                >
+                    Communication
+                </a>
+
+                <a href="organizer-statistics.html">
+                    Statistics
+                </a>
+
+                <a href="organizer-upcoming.html">
+                    Upcoming
+                </a>
+
+                <a
+                    class="logout"
+                    href="login.html"
+                    data-logout
+                >
+                    Log out
+                </a>
+
+            </nav>
+
+        </aside>
+
+
+        <!-- Main Content -->
+        <main class="org-main">
+
+            <!-- Page Header -->
+            <header class="org-header">
+
+                <span class="kicker">
+                    Attendee connection
+                </span>
+
+                <h1>
+                    Communication.
+                </h1>
+
+                <p>
+                    Keep your attendees informed and excited.
+                </p>
+
+            </header>
+
+
+            <!-- Communication Card -->
+            <section class="org-card">
+
+                <form
+                    class="org-form"
+                    id="messagePageForm"
+                >
+
+                    <!-- Event Selection -->
+                    <label>
+                        Event
+
+                        <select name="event">
+
+                            <option>
+                                All registered attendees
+                            </option>
+
+                        </select>
+
+                    </label>
+
+
+                    <!-- Message -->
+                    <label>
+                        Message
+
+                        <textarea
+                            name="message"
+                            rows="6"
+                            required
+                            placeholder="Share an important update..."
+                        ></textarea>
+
+                    </label>
+
+
+                    <!-- Send Button -->
+                    <button
+                        class="org-button"
+                        type="submit"
+                    >
+                        Send update
+                    </button>
+
+
+                    <!-- Success Message -->
+                    <p
+                        class="success"
+                        id="orgMessage"
+                    ></p>
+
+                </form>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- JavaScript -->
+    <script src="api-client.js"></script><script src="organizer-pages.js"></script>
+
+</body>
+
+</html>

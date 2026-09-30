@@ -1,0 +1,29 @@
+﻿.admin-grid.single-admin-page { grid-template-columns: minmax(0, 1fr); }
+.admin-grid.single-admin-page > .admin-panel { width: 100%; }
+
+.report-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin-top: 22px;
+}
+
+.report-stat-grid > div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px;
+    border: 1px solid rgba(25, 22, 54, 0.1);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.72);
+}
+
+.report-stat-grid span {
+    color: #62617a;
+    font-size: 0.9rem;
+}
+
+.report-stat-grid strong {
+    color: #191636;
+    font-size: 1.45rem;
+}

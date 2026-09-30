@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event approvals | Evently Admin</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="admin-pages.css">
+</head>
+<body>
+<div class="dashboard-shell">
+        <aside class="sidebar">
+            <a class="dashboard-logo" href="index.html"><img src="logo.png" alt="Evently"> Evently</a>
+            <p class="sidebar-label">Admin menu</p>
+            <a class="sidebar-link" href="admin-dashboard.html">Overview</a>
+            <a class="sidebar-link" href="admin-users.html">User management</a>
+            <a class="sidebar-link" href="admin-approvals.html">Event approvals</a>
+            <a class="sidebar-link" href="admin-settings.html">Settings</a>
+            <a class="sidebar-link" href="admin-activity.html">Activity log</a>
+            <a class="sidebar-link" href="admin-reports.html">Reports</a>
+            <a class="sidebar-link logout" href="login.html" data-logout>Log out</a>
+        </aside>
+    <main class="dashboard-main">
+        <header class="dashboard-header"><div><span class="dashboard-eyebrow">Admin dashboard</span><h1>Run the room.</h1><p class="dashboard-subtitle">Keep Evently welcoming, useful, and moving.</p></div><div class="profile-chip"><span class="profile-dot"></span><span data-user-name>Admin</span></div></header>
+        <div class="admin-grid single-admin-page">
+            <section
+                class="dashboard-panel admin-panel"
+                id="approvals"
+            >
+
+                <div class="panel-heading">
+
+                    <div>
+
+                        <span class="panel-kicker">
+                            Event approval system
+                        </span>
+
+                        <h2>
+                            Pending events
+                        </h2>
+
+                    </div>
+
+                    <span
+                        class="badge"
+                        id="pendingCount"
+                    >
+                        0 pending
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="approval-list"
+                    id="approvalList"
+                >
+
+                    <!-- Events will be loaded from Java backend -->
+
+                </div>
+
+            </section>
+        </div>
+    </main>
+</div>
+<script src="api-client.js"></script><script src="admin-pages.js"></script>
+<!-- <script src="api-client.js"></script><script src="dashboard.js"></script> -->
+</body>
+</html>
+

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Registration History | Evently</title>
+
+    <link rel="stylesheet" href="attendee-pages.css">
+</head>
+
+<body>
+
+    <div class="page-shell">
+
+        <!-- Sidebar -->
+        <aside class="page-sidebar">
+
+            <!-- Logo -->
+            <a class="page-logo" href="index.html">
+                <img src="logo.png" alt="Evently">
+                Evently
+            </a>
+
+            <!-- Navigation Label -->
+            <span class="page-nav-label">
+                Attendee space
+            </span>
+
+            <!-- Navigation -->
+            <nav class="page-nav">
+
+                <a href="attendee-browse.html">
+                    Browse events
+                </a>
+
+                <a href="attendee-tickets.html">
+                    My tickets
+                </a>
+
+                <a
+                    class="active"
+                    href="attendee-history.html"
+                >
+                    Registration history
+                </a>
+
+                <a href="attendee-notifications.html">
+                    Notifications
+                </a>
+
+                <a href="attendee-profile.html">
+                    Profile
+                </a>
+
+                <a
+                    class="logout"
+                    href="login.html"
+                    data-logout
+                >
+                    Log out
+                </a>
+
+            </nav>
+
+        </aside>
+
+
+        <!-- Main Content -->
+        <main class="page-main">
+
+            <!-- Page Header -->
+            <header class="page-top">
+
+                <div>
+
+                    <span class="kicker">
+                        Your journey
+                    </span>
+
+                    <h1>
+                        Registration history.
+                    </h1>
+
+                    <p>
+                        A record of every event you chose to show up for.
+                    </p>
+
+                </div>
+
+            </header>
+
+
+            <!-- Registration History -->
+            <section class="premium-card">
+
+                <div id="registrationHistoryPage"></div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- JavaScript -->
+    <script src="api-client.js"></script><script src="attendee-pages.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Event Details | Evently</title>
+
+    <link rel="stylesheet" href="attendee-pages.css">
+</head>
+
+<body>
+
+<div class="page-shell">
+
+    <!-- Sidebar -->
+    <aside class="page-sidebar">
+
+        <a class="page-logo" href="index.html">
+            <img src="logo.png" alt="Evently">
+            Evently
+        </a>
+
+        <span class="page-nav-label">
+            Booking
+        </span>
+
+        <nav class="page-nav">
+
+            <a href="attendee-browse.html">
+                Back to events
+            </a>
+
+            <a href="attendee-tickets.html">
+                My tickets
+            </a>
+
+            <a class="logout" href="login.html" data-logout>
+                Log out
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- Main -->
+    <main class="page-main">
+
+        <section class="detail-layout">
+
+            <span class="kicker">
+                Event details
+            </span>
+
+            <h2 id="bookingEvent">
+                Loading event...
+            </h2>
+
+            <p id="bookingLocation">
+                Loading venue...
+            </p>
+
+            <p id="bookingDate">
+                Loading date...
+            </p>
+
+            <!-- Booking Form -->
+            <form class="booking-panel" id="bookingForm">
+
+                <label>
+                    Ticket type
+
+                    <select id="bookingTicket">
+                        <option value="">
+                            Loading ticket types...
+                        </option>
+                    </select>
+
+                </label>
+
+                <button
+                    class="premium-button"
+                    type="submit"
+                >
+                    Reserve ticket
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="api-client.js"></script>
+<script src="attendee-pages.js"></script>
+
+</body>
+</html>

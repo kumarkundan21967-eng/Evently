@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Event | Evently</title>
+
+    <link rel="stylesheet" href="organizer-pages.css">
+</head>
+
+<body>
+
+    <div class="org-shell">
+
+        <!-- Sidebar -->
+        <aside class="org-side">
+
+            <!-- Logo -->
+            <a class="org-logo" href="index.html">
+                <img src="logo.png" alt="Evently">
+                Evently
+            </a>
+
+            <!-- Navigation Label -->
+            <span class="org-label">
+                Organizer studio
+            </span>
+
+            <!-- Navigation -->
+            <nav class="org-nav">
+
+                <a
+                    class="active"
+                    href="organizer-create-event.html"
+                >
+                    Create event
+                </a>
+
+                <a href="organizer-events.html">
+                    Manage events
+                </a>
+
+                <a href="organizer-tickets.html">
+                    Tickets
+                </a>
+
+                <a href="organizer-communication.html">
+                    Communication
+                </a>
+
+                <a href="organizer-statistics.html">
+                    Statistics
+                </a>
+
+                <a href="organizer-upcoming.html">
+                    Upcoming
+                </a>
+
+                <a
+                    class="logout"
+                    href="login.html"
+                    data-logout
+                >
+                    Log out
+                </a>
+
+            </nav>
+
+        </aside>
+
+
+        <!-- Main Content -->
+        <main class="org-main">
+
+            <!-- Page Header -->
+            <header class="org-header">
+
+                <span class="kicker">
+                    Event studio
+                </span>
+
+                <h1>
+                    Create an event.
+                </h1>
+
+                <p>
+                    Build something people will want to show up for.
+                </p>
+
+            </header>
+
+
+            <!-- Create Event Card -->
+            <section class="org-card">
+
+                <form
+                    class="org-form"
+                    id="createEventPageForm"
+                >
+
+                    <!-- Event Title -->
+                    <label>
+                        Event title
+
+                        <input
+                            name="name"
+                            required
+                            placeholder="Summer Sounds"
+                        >
+                    </label>
+
+
+                    <!-- Description -->
+                    <label>
+                        Description
+
+                        <textarea
+                            name="description"
+                            rows="4"
+                            required
+                            placeholder="Describe your event..."
+                        ></textarea>
+                    </label>
+
+
+                    <!-- Venue -->
+                    <label>
+                        Venue
+
+                        <input
+                            name="location"
+                            required
+                            placeholder="Venue or neighborhood"
+                        >
+                    </label>
+
+
+                    <!-- Date -->
+                    <label>
+                        Date
+
+                        <input
+                            name="date"
+                            type="date"
+                            required
+                        >
+                    </label>
+
+
+                    <!-- Time -->
+                    <label>
+                        Time
+
+                        <input
+                            name="time"
+                            type="time"
+                            required
+                        >
+                    </label>
+
+
+                    <!-- Capacity -->
+                    <label>
+                        Capacity
+
+                        <input
+                            name="capacity"
+                            type="number"
+                            min="1"
+                            required
+                            placeholder="250"
+                        >
+                    </label>
+
+
+                    <!-- Submit Button -->
+                    <button
+                        class="org-button"
+                        type="submit"
+                    >
+                        Submit for admin approval
+                    </button>
+
+
+                    <!-- Success Message -->
+                    <p
+                        class="success"
+                        id="orgMessage"
+                    ></p>
+
+                </form>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- JavaScript -->
+    <script src="api-client.js"></script><script src="organizer-pages.js"></script>
+
+</body>
+
+</html>

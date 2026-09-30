@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | Evently Admin</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="admin-pages.css">
+</head>
+<body>
+<div class="dashboard-shell">
+        <aside class="sidebar">
+            <a class="dashboard-logo" href="index.html"><img src="logo.png" alt="Evently"> Evently</a>
+            <p class="sidebar-label">Admin menu</p>
+            <a class="sidebar-link" href="admin-dashboard.html">Overview</a>
+            <a class="sidebar-link" href="admin-users.html">User management</a>
+            <a class="sidebar-link" href="admin-approvals.html">Event approvals</a>
+            <a class="sidebar-link" href="admin-settings.html">Settings</a>
+            <a class="sidebar-link" href="admin-activity.html">Activity log</a>
+            <a class="sidebar-link" href="admin-reports.html">Reports</a>
+            <a class="sidebar-link logout" href="login.html" data-logout>Log out</a>
+        </aside>
+    <main class="dashboard-main">
+        <header class="dashboard-header"><div><span class="dashboard-eyebrow">Admin dashboard</span><h1>Run the room.</h1><p class="dashboard-subtitle">Keep Evently welcoming, useful, and moving.</p></div><div class="profile-chip"><span class="profile-dot"></span><span data-user-name>Admin</span></div></header>
+        <div class="admin-grid single-admin-page">
+            <section
+                class="dashboard-panel admin-panel"
+                id="settings"
+            >
+
+                <div class="panel-heading">
+
+                    <div>
+
+                        <span class="panel-kicker">
+                            System settings
+                        </span>
+
+                        <h2>
+                            Website configuration
+                        </h2>
+
+                    </div>
+
+                    <span class="badge">
+                        Admin only
+                    </span>
+
+                </div>
+
+
+                <form
+                    class="settings-form"
+                    id="settingsForm"
+                >
+
+                    <label for="settingsPlatform">
+
+                        Platform name
+
+                        <input
+                            id="settingsPlatform"
+                            type="text"
+                            value="Evently"
+                            required
+                        >
+
+                    </label>
+
+
+                    <label for="settingsStatus">
+
+                        Default event status
+
+                        <select id="settingsStatus">
+
+                            <option selected>
+                                Pending review
+                            </option>
+
+                            <option>
+                                Auto-approved
+                            </option>
+
+                        </select>
+
+                    </label>
+
+
+                    <label class="settings-toggle">
+
+                        <input
+                            id="settingsNotifications"
+                            type="checkbox"
+                            checked
+                        >
+
+                        Organizer approval notifications
+
+                    </label>
+
+
+                    <button
+                         class="admin-action"
+                          type="button"
+                           onclick="saveSettings()"
+                             >
+                             Save settings
+                          </button>
+
+
+                  <p
+    id="settingsConfirmation"
+    role="status"
+    style="
+        margin-top: 15px;
+        padding: 12px;
+        color: green;
+        font-weight: bold;
+        background: #e8f8ef;
+        border-radius: 8px;
+        display: block;
+    "
+></p>
+
+            </section>
+        </div>
+    </main>
+</div>
+<script src="api-client.js"></script><script src="admin-pages.js"></script>
+<!-- <script src="api-client.js"></script><script src="dashboard.js"></script> -->
+
+</body>
+</html>

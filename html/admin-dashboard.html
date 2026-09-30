@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overview | Evently Admin</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="admin-pages.css">
+</head>
+<body>
+<div class="dashboard-shell">
+        <aside class="sidebar">
+            <a class="dashboard-logo" href="index.html"><img src="logo.png" alt="Evently"> Evently</a>
+            <p class="sidebar-label">Admin menu</p>
+            <a class="sidebar-link" href="admin-dashboard.html">Overview</a>
+            <a class="sidebar-link" href="admin-users.html">User management</a>
+            <a class="sidebar-link" href="admin-approvals.html">Event approvals</a>
+            <a class="sidebar-link" href="admin-settings.html">Settings</a>
+            <a class="sidebar-link" href="admin-activity.html">Activity log</a>
+            <a class="sidebar-link" href="admin-reports.html">Reports</a>
+            <a class="sidebar-link logout" href="login.html" data-logout>Log out</a>
+        </aside>
+    <main class="dashboard-main">
+        <header class="dashboard-header"><div><span class="dashboard-eyebrow">Admin dashboard</span><h1>Run the room.</h1><p class="dashboard-subtitle">Keep Evently welcoming, useful, and moving.</p></div><div class="profile-chip"><span class="profile-dot"></span><span data-user-name>Admin</span></div></header>
+        <section class="stats-grid">
+
+            <div class="stat-card">
+
+                <span>Total events</span>
+
+                <strong id="totalEvents">
+                    0
+                </strong>
+
+                <em>
+                    Events in database
+                </em>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span>Active hosts</span>
+
+                <strong id="activeHosts">
+                    0
+                </strong>
+
+                <em>
+                    Organizers
+                </em>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span>Attendees</span>
+
+                <strong id="totalAttendees">
+                    0
+                </strong>
+
+                <em>
+                    Registered users
+                </em>
+
+            </div>
+
+        </section>
+        <div class="admin-grid">
+            <section
+                class="dashboard-panel admin-panel"
+            >
+
+                <div class="panel-heading">
+
+                    <div>
+
+                        <span class="panel-kicker">
+                            Statistics
+                        </span>
+
+                        <h2>
+                            Platform pulse
+                        </h2>
+
+                    </div>
+
+                    <span class="badge">
+                        Live
+                    </span>
+
+                </div>
+
+
+                <div class="metric-bars">
+
+                    <div>
+
+                        <span>
+
+                            <b>
+                                Event views
+                            </b>
+
+                            <b>
+                                78%
+                            </b>
+
+                        </span>
+
+                        <i style="width:78%"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+
+                            <b>
+                                Ticket conversion
+                            </b>
+
+                            <b>
+                                62%
+                            </b>
+
+                        </span>
+
+                        <i style="width:62%"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+
+                            <b>
+                                Repeat attendees
+                            </b>
+
+                            <b>
+                                46%
+                            </b>
+
+                        </span>
+
+                        <i style="width:46%"></i>
+
+                    </div>
+
+                </div>
+
+            </section>
+            <section
+                class="dashboard-panel admin-panel activity-panel"
+            >
+
+                <div class="panel-heading">
+
+                    <div>
+
+                        <span class="panel-kicker">
+                            Activity monitor
+                        </span>
+
+                        <h2>
+                            Activity log
+                        </h2>
+
+                    </div>
+
+
+                    <select
+                        class="activity-filter"
+                        id="activityFilter"
+                    >
+
+                        <option value="ALL">
+                            All activity
+                        </option>
+
+                        <option value="LOGIN">
+                            User Login
+                        </option>
+
+                        <option value="EVENT_CREATED">
+                            Event Created
+                        </option>
+
+                        <option value="TICKET_PURCHASED">
+                            Ticket Purchased
+                        </option>
+
+                        <option value="EVENT_APPROVED">
+                            Event Approved
+                        </option>
+
+                        <option value="EVENT_REJECTED">
+                            Event Rejected
+                        </option>
+
+                        <option value="SETTINGS_CHANGED">
+                            Settings Changed
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <ul
+                    class="activity-list"
+                    id="activityLog"
+                >
+
+                    <li data-activity="LOGIN">
+
+                        <span class="activity-dot"></span>
+
+                        <span>
+
+                            <b>
+                                User Login
+                            </b>
+
+                            <small>
+                                Admin logged in
+                            </small>
+
+                        </span>
+
+                    </li>
+
+
+                    <li data-activity="EVENT_CREATED">
+
+                        <span class="activity-dot coral-dot"></span>
+
+                        <span>
+
+                            <b>
+                                Event Created
+                            </b>
+
+                            <small>
+                                New event created
+                            </small>
+
+                        </span>
+
+                    </li>
+
+
+                    <li data-activity="TICKET_PURCHASED">
+
+                        <span class="activity-dot yellow-dot"></span>
+
+                        <span>
+
+                            <b>
+                                Ticket Purchased
+                            </b>
+
+                            <small>
+                                Ticket purchase recorded
+                            </small>
+
+                        </span>
+
+                    </li>
+
+
+                    <li data-activity="EVENT_APPROVED">
+
+                        <span class="activity-dot green-dot"></span>
+
+                        <span>
+
+                            <b>
+                                Event Approved
+                            </b>
+
+                            <small>
+                                Event approved by admin
+                            </small>
+
+                        </span>
+
+                    </li>
+
+
+                    <li data-activity="SETTINGS_CHANGED">
+
+                        <span class="activity-dot purple-dot"></span>
+
+                        <span>
+
+                            <b>
+                                Settings Changed
+                            </b>
+
+                            <small>
+                                Platform configuration updated
+                            </small>
+
+                        </span>
+
+                    </li>
+
+                </ul>
+
+
+                <p
+                    class="empty-activity"
+                    id="emptyActivity"
+                >
+                    No activity found for this filter.
+                </p>
+
+            </section>
+        </div>
+    </main>
+</div>
+<script src="api-client.js"></script><script src="admin-pages.js"></script>
+<script src="api-client.js"></script><script src="dashboard.js"></script>
+</body>
+</html>
+
+
+
