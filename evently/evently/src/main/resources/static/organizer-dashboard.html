@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Organizer Dashboard | Evently</title>
+
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+<div class="dashboard-shell">
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+        <a class="dashboard-logo" href="index.html">
+            <img src="logo.png" alt="Evently">
+            Evently
+        </a>
+
+        <p class="sidebar-label">Organizer Studio</p>
+
+        <a class="sidebar-link active"
+           href="organizer-dashboard.html">
+            Overview
+        </a>
+
+        <a class="sidebar-link"
+           href="organizer-events.html">
+            Manage events
+        </a>
+
+        <a class="sidebar-link"
+           href="organizer-create-event.html">
+            Create event
+        </a>
+
+        <a class="sidebar-link"
+           href="organizer-tickets.html">
+            Tickets
+        </a>
+
+        <a class="sidebar-link"
+           href="organizer-communication.html">
+            Communication
+        </a>
+
+        <a class="sidebar-link"
+           href="organizer-statistics.html">
+            Statistics
+        </a>
+
+        <a class="sidebar-link"
+           href="organizer-upcoming.html">
+            Upcoming
+        </a>
+
+        <a class="sidebar-link"
+           href="index.html#events">
+            Discover events
+        </a>
+
+        <a class="sidebar-link"
+           href="index.html#contact">
+            Get support
+        </a>
+
+        <a class="sidebar-link logout"
+           href="login.html"
+           data-logout>
+            Log out
+        </a>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="dashboard-main">
+
+
+        <!-- =================================================
+             HEADER
+        ================================================== -->
+
+        <header class="dashboard-header">
+
+            <div>
+
+                <span class="dashboard-eyebrow">
+                    Organizer dashboard
+                </span>
+
+                <h1>
+                    Bring people together.
+                </h1>
+
+            </div>
+
+            <div class="profile-chip">
+
+                <span class="profile-dot"></span>
+
+                <span data-org-name>
+                    Organizer
+                </span>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================================
+             TOP STATS
+        ================================================== -->
+
+        <section class="stats-grid">
+
+            <div class="stat-card">
+
+                <span>
+                    Total events
+                </span>
+
+                <strong id="publishedEventsCount">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span>
+                    Total registrations
+                </span>
+
+                <strong id="registrationTotal">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span>
+                    Tickets sold
+                </span>
+
+                <strong id="ticketSalesTotal">
+                    0
+                </strong>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             STATISTICS
+        ================================================== -->
+
+        <section
+            class="dashboard-panel organizer-statistics"
+            id="statistics"
+        >
+
+            <div class="panel-heading">
+
+                <div>
+
+                    <span class="panel-kicker">
+                        Performance overview
+                    </span>
+
+                    <h2>
+                        Statistics
+                    </h2>
+
+                </div>
+
+                <span class="badge">
+                    Live data
+                </span>
+
+            </div>
+
+
+
+            <!-- =============================================
+                 ANALYTICS CARDS
+            ============================================== -->
+
+            <div class="analytics-grid">
+
+
+                <!-- TOTAL EVENTS -->
+
+                <div class="analytics">
+
+                    <span>
+                        Total events
+                    </span>
+
+                <strong id="organizerTotalEvents">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <!-- REGISTRATIONS -->
+
+                <div class="analytics">
+
+                    <span>
+                        Registrations
+                    </span>
+
+                <strong id="organizerRegistrationsTotal">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <!-- TICKET SALES -->
+
+                <div class="analytics">
+
+                    <span>
+                        Ticket sales
+                    </span>
+
+                <strong id="organizerTicketSalesTotal">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <!-- BOOKING VALUE -->
+
+                <div class="analytics">
+
+                    <span>
+                        Demo booking value
+                    </span>
+
+                <strong id="organizerBookingValue">
+                        ₹0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =============================================
+                 WEEKLY CHART
+            ============================================== -->
+
+            <div class="chart">
+
+                <div class="chart-title">
+
+                    <b>
+                        Weekly registrations
+                    </b>
+
+                    <span>
+                        Last 7 days
+                    </span>
+
+                </div>
+
+
+                <div class="bars">
+
+                    <i
+                        style="height:4%"
+                        title="No data"
+                    ></i>
+
+                    <i
+                        style="height:4%"
+                        title="No data"
+                    ></i>
+
+                    <i
+                        style="height:4%"
+                        title="No data"
+                    ></i>
+
+                    <i
+                        style="height:4%"
+                        title="No data"
+                    ></i>
+
+                    <i
+                        style="height:4%"
+                        title="No data"
+                    ></i>
+
+                    <i
+                        style="height:4%"
+                        title="No data"
+                    ></i>
+
+                    <i
+                        style="height:4%"
+                        title="No data"
+                    ></i>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             UPCOMING EVENTS
+        ================================================== -->
+
+        <section class="dashboard-panel">
+
+            <div class="panel-heading">
+
+                <div>
+
+                    <span class="panel-kicker">
+                        Events
+                    </span>
+
+                    <h2>
+                        Your events
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="org-list"
+                id="orgEventList"
+            >
+
+                <p>
+                    Loading events...
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             CREATE EVENT
+        ================================================== -->
+
+        <section class="dashboard-panel create-event-panel">
+
+            <span class="panel-kicker">
+                Event studio
+            </span>
+
+            <h2>
+                Create a new event
+            </h2>
+
+
+            <form
+                class="create-event-form"
+                id="createEventPageForm"
+            >
+
+
+                <label>
+
+                    Event title
+
+                    <input
+                        name="name"
+                        type="text"
+                        placeholder="e.g. Summer Sounds"
+                        required
+                    >
+
+                </label>
+
+
+
+                <label>
+
+                    Description
+
+                    <textarea
+                        name="description"
+                        rows="4"
+                        placeholder="Tell attendees what to expect..."
+                        required
+                    ></textarea>
+
+                </label>
+
+
+
+                <div class="form-split">
+
+                    <label>
+
+                        Select date
+
+                        <input
+                            name="date"
+                            type="date"
+                            required
+                        >
+
+                    </label>
+
+
+                    <label>
+
+                        Select time
+
+                        <input
+                            name="time"
+                            type="time"
+                            required
+                        >
+
+                    </label>
+
+                </div>
+
+
+
+                <label>
+
+                    Venue
+
+                    <input
+                        name="location"
+                        type="text"
+                        placeholder="Venue or neighborhood"
+                        required
+                    >
+
+                </label>
+
+
+
+                <label>
+
+                    Capacity
+
+                    <input
+                        name="capacity"
+                        type="number"
+                        min="1"
+                        placeholder="250"
+                        required
+                    >
+
+                </label>
+
+
+
+                <div class="event-form-actions">
+
+                    <button
+                        class="admin-action"
+                        type="submit"
+                    >
+                        Submit event
+                    </button>
+
+                </div>
+
+            </form>
+
+
+            <p
+                class="admin-confirmation"
+                id="orgMessage"
+                role="status"
+            ></p>
+
+        </section>
+
+
+
+        <!-- =================================================
+             TICKET MANAGEMENT
+        ================================================== -->
+
+        <section class="dashboard-panel">
+
+            <span class="panel-kicker">
+                Ticket management
+            </span>
+
+            <h2>
+                Create ticket
+            </h2>
+
+
+            <form
+                class="create-event-form"
+                id="ticketPageForm"
+            >
+
+
+                <label>
+
+                    Select event
+
+                    <select
+                        name="event"
+                        required
+                    >
+
+                        <option value="">
+                            Select event
+                        </option>
+
+                    </select>
+
+                </label>
+
+
+
+                <label>
+
+                    Ticket name
+
+                    <input
+                        name="ticket"
+                        type="text"
+                        placeholder="General admission"
+                        required
+                    >
+
+                </label>
+
+
+
+                <div class="form-split">
+
+                    <label>
+
+                        Price
+
+                        <input
+                            name="price"
+                            type="number"
+                            min="0"
+                            step="0.01"
+                            placeholder="500"
+                            required
+                        >
+
+                    </label>
+
+
+                    <label>
+
+                        Quantity
+
+                        <input
+                            name="quantity"
+                            type="number"
+                            min="1"
+                            placeholder="100"
+                            required
+                        >
+
+                    </label>
+
+                </div>
+
+
+
+                <button
+                    class="admin-action"
+                    type="submit"
+                >
+                    Save ticket
+                </button>
+
+            </form>
+
+        </section>
+
+
+
+        <!-- =================================================
+             ATTENDEE COMMUNICATION
+        ================================================== -->
+
+        <section class="dashboard-panel">
+
+            <span class="panel-kicker">
+                Attendee communication
+            </span>
+
+            <h2>
+                Send a message
+            </h2>
+
+
+            <form
+                class="create-event-form"
+                id="messagePageForm"
+            >
+
+
+                <label>
+
+                    Select event
+
+                    <select
+                        name="event"
+                        required
+                    >
+
+                        <option value="">
+                            Select event
+                        </option>
+
+                    </select>
+
+                </label>
+
+
+
+                <label>
+
+                    Message
+
+                    <textarea
+                        name="message"
+                        rows="4"
+                        placeholder="Share an update with attendees..."
+                        required
+                    ></textarea>
+
+                </label>
+
+
+
+                <button
+                    class="admin-action"
+                    type="submit"
+                >
+                    Send message
+                </button>
+
+            </form>
+
+        </section>
+
+
+
+        <!-- =================================================
+             ATTENDEE REGISTRATIONS
+        ================================================== -->
+
+        <section class="dashboard-panel attendee-section">
+
+            <div class="panel-heading">
+
+                <div>
+
+                    <span class="panel-kicker">
+                        Registration monitor
+                    </span>
+
+                    <h2>
+                        Attendee registrations
+                    </h2>
+
+                </div>
+
+
+                <span
+                    class="badge"
+                    id="registrationCount"
+                >
+                    0 registered
+                </span>
+
+            </div>
+
+
+            <ul
+                class="dashboard-list"
+                id="organizerRegistrations"
+            >
+
+                <li>
+
+                    <span>
+
+                        No new registrations yet
+
+                        <small>
+                            Purchases will appear here.
+                        </small>
+
+                    </span>
+
+                    <span class="badge">
+                        Waiting
+                    </span>
+
+                </li>
+
+            </ul>
+
+        </section>
+
+
+
+        <!-- =================================================
+             EVENT STATUS
+        ================================================== -->
+
+        <section class="dashboard-panel workflow-status">
+
+            <div class="panel-heading">
+
+                <div>
+
+                    <span class="panel-kicker">
+                        Admin approval
+                    </span>
+
+                    <h2>
+                        Event status
+                    </h2>
+
+                </div>
+
+
+                <span
+                    class="badge"
+                    id="approvalStatus"
+                >
+                    Pending review
+                </span>
+
+            </div>
+
+
+            <div class="status-flow">
+
+                <span class="status-step complete">
+                    Event details
+                </span>
+
+                <span class="status-line"></span>
+
+                <span
+                    class="status-step current"
+                    id="statusReview"
+                >
+                    Admin review
+                </span>
+
+                <span class="status-line"></span>
+
+                <span
+                    class="status-step"
+                    id="statusPublished"
+                >
+                    Published
+                </span>
+
+            </div>
+
+
+            <p
+                class="status-copy"
+                id="statusCopy"
+            >
+                Your submitted events are waiting for admin approval.
+            </p>
+
+
+            <div class="approval-actions organizer-approval-actions">
+
+                <button
+                    class="approve-event"
+                    id="organizerApprove"
+                    type="button"
+                >
+                    Refresh status
+                </button>
+
+
+                <button
+                    class="reject-event"
+                    id="organizerModify"
+                    type="button"
+                >
+                    Edit event
+                </button>
+
+
+                <button
+                    class="admin-action"
+                    id="completeEvent"
+                    type="button"
+                >
+                    Mark event completed
+                </button>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================== -->
+
+<script src="api-client.js"></script>
+<script src="dashboard.js"></script>
+
+</body>
+</html>

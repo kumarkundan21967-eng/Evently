@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Events | Evently</title>
+
+    <!-- Organizer Dashboard CSS -->
+    <link rel="stylesheet" href="organizer-pages.css">
+</head>
+
+<body>
+
+    <div class="org-shell">
+
+        <!-- =================================================
+             SIDEBAR
+        ================================================== -->
+
+        <aside class="org-side">
+
+            <!-- Evently Logo -->
+            <a class="org-logo" href="index.html">
+
+                <img
+                    src="logo.png"
+                    alt="Evently Logo"
+                >
+
+                <span>
+                    Evently
+                </span>
+
+            </a>
+
+
+            <!-- Sidebar Label -->
+            <span class="org-label">
+                Organizer studio
+            </span>
+
+
+            <!-- Navigation -->
+            <nav class="org-nav">
+
+                <a href="organizer-dashboard.html">
+                    Overview
+                </a>
+
+                <a
+                    class="active"
+                    href="organizer-events.html"
+                >
+                    Manage events
+                </a>
+
+                <a href="organizer-create-event.html">
+                    Create event
+                </a>
+
+                <a href="organizer-tickets.html">
+                    Tickets
+                </a>
+
+                <a href="organizer-communication.html">
+                    Communication
+                </a>
+
+                <a href="organizer-statistics.html">
+                    Statistics
+                </a>
+
+                <a href="organizer-upcoming.html">
+                    Upcoming
+                </a>
+
+                <a
+                    class="logout"
+                    href="login.html"
+                    data-logout
+                >
+                    Log out
+                </a>
+
+            </nav>
+
+        </aside>
+
+
+        <!-- =================================================
+             MAIN CONTENT
+        ================================================== -->
+
+        <main class="org-main">
+
+            <!-- Page Header -->
+            <header class="org-header">
+
+                <span class="kicker">
+                    Your portfolio
+                </span>
+
+                <h1>
+                    Manage events.
+                </h1>
+
+                <p>
+                    Track every submission and its approval status.
+                </p>
+
+            </header>
+
+
+            <!-- =================================================
+                 EVENT MANAGEMENT CARD
+            ================================================== -->
+
+            <section class="org-card">
+
+                <div
+                    class="org-list"
+                    id="orgEventList"
+                ></div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- Organizer JavaScript -->
+    <script src="api-client.js"></script><script src="organizer-pages.js"></script>
+
+</body>
+
+</html>

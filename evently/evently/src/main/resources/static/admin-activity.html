@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Activity Log | Evently Admin</title>
+
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="admin-pages.css">
+</head>
+
+<body>
+
+<div class="dashboard-shell">
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+        <a class="dashboard-logo" href="index.html">
+            <img src="logo.png" alt="Evently">
+            Evently
+        </a>
+
+        <p class="sidebar-label">
+            Admin menu
+        </p>
+
+        <a class="sidebar-link"
+           href="admin-dashboard.html">
+            Overview
+        </a>
+
+        <a class="sidebar-link"
+           href="admin-users.html">
+            User management
+        </a>
+
+        <a class="sidebar-link"
+           href="admin-approvals.html">
+            Event approvals
+        </a>
+
+        <a class="sidebar-link"
+           href="admin-settings.html">
+            Settings
+        </a>
+
+        <a class="sidebar-link"
+           href="admin-activity.html">
+            Activity log
+        </a>
+
+        <a class="sidebar-link"
+           href="admin-reports.html">
+            Reports
+        </a>
+
+        <a class="sidebar-link logout"
+           href="login.html"
+           data-logout>
+            Log out
+        </a>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="dashboard-main">
+
+        <!-- HEADER -->
+
+        <header class="dashboard-header">
+
+            <div>
+
+                <span class="dashboard-eyebrow">
+                    Admin dashboard
+                </span>
+
+                <h1>
+                    Run the room.
+                </h1>
+
+                <p class="dashboard-subtitle">
+                    Keep Evently welcoming, useful, and moving.
+                </p>
+
+            </div>
+
+            <div class="profile-chip">
+
+                <span class="profile-dot"></span>
+
+                <span data-user-name>
+                    Admin
+                </span>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             ACTIVITY PANEL
+        ================================================== -->
+
+        <div class="admin-grid single-admin-page">
+
+            <section class="dashboard-panel admin-panel activity-panel">
+
+                <!-- PANEL HEADER -->
+
+                <div class="panel-heading">
+
+                    <div>
+
+                        <span class="panel-kicker">
+                            Activity monitor
+                        </span>
+
+                        <h2>
+                            Activity log
+                        </h2>
+
+                    </div>
+
+
+                    <!-- FILTER -->
+
+                    <select
+                        class="activity-filter"
+                        id="activityFilter"
+                    >
+
+                        <option value="ALL">
+                            All activity
+                        </option>
+
+                        <option value="LOGIN">
+                            User Login
+                        </option>
+
+                        <option value="EVENT_CREATED">
+                            Event Created
+                        </option>
+
+                        <option value="TICKET_PURCHASED">
+                            Ticket Purchased
+                        </option>
+
+                        <option value="EVENT_APPROVED">
+                            Event Approved
+                        </option>
+
+                        <option value="EVENT_REJECTED">
+                            Event Rejected
+                        </option>
+
+                        <option value="SETTINGS_CHANGED">
+                            Settings Changed
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- =================================================
+                     ACTIVITY LIST
+                ================================================== -->
+
+                <ul
+                    class="activity-list"
+                    id="activityLog"
+                >
+
+                    <!-- LOGIN -->
+
+                    <li data-activity="LOGIN">
+
+                        <span class="activity-dot"></span>
+
+                        <span>
+
+                            <b>
+                                User Login
+                            </b>
+
+                            <small>
+                                Admin logged in
+                            </small>
+
+                        </span>
+
+                    </li>
+
+
+                    <!-- EVENT CREATED -->
+
+                    <li data-activity="EVENT_CREATED">
+
+                        <span class="activity-dot coral-dot"></span>
+
+                        <span>
+
+                            <b>
+                                Event Created
+                            </b>
+
+                            <small>
+                                New event created
+                            </small>
+
+                        </span>
+
+                    </li>
+
+
+                    <!-- TICKET PURCHASED -->
+
+                    <li data-activity="TICKET_PURCHASED">
+
+                        <span class="activity-dot yellow-dot"></span>
+
+                        <span>
+
+                            <b>
+                                Ticket Purchased
+                            </b>
+
+                            <small>
+                                Ticket purchase recorded
+                            </small>
+
+                        </span>
+
+                    </li>
+
+
+                    <!-- EVENT APPROVED -->
+
+                    <li data-activity="EVENT_APPROVED">
+
+                        <span class="activity-dot green-dot"></span>
+
+                        <span>
+
+                            <b>
+                                Event Approved
+                            </b>
+
+                            <small>
+                                Event approved by admin
+                            </small>
+
+                        </span>
+
+                    </li>
+
+
+                    <!-- SETTINGS CHANGED -->
+
+                    <li data-activity="SETTINGS_CHANGED">
+
+                        <span class="activity-dot purple-dot"></span>
+
+                        <span>
+
+                            <b>
+                                Settings Changed
+                            </b>
+
+                            <small>
+                                Platform configuration updated
+                            </small>
+
+                        </span>
+
+                    </li>
+
+                </ul>
+
+
+                <!-- EMPTY MESSAGE -->
+
+                <p
+                    class="empty-activity"
+                    id="emptyActivity"
+                    style="display: none;"
+                >
+                    No activity found for this filter.
+                </p>
+
+            </section>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
+
+<script src="api-client.js"></script><script src="admin-pages.js"></script>
+
+<!-- dashboard.js intentionally not used -->
+
+</body>
+
+</html>

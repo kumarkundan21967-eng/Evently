@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Attendee Dashboard | Evently</title>
+
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+    <div class="dashboard-shell">
+
+        <!-- =====================================================
+             SIDEBAR
+        ====================================================== -->
+
+        <aside class="sidebar">
+
+            <a class="dashboard-logo" href="index.html">
+                <img src="logo.png" alt="Evently">
+                Evently
+            </a>
+
+            <p class="sidebar-label">
+                Your Evently
+            </p>
+
+            <a class="sidebar-link active"
+               href="attendee-dashboard.html">
+                My plans
+            </a>
+
+            <a class="sidebar-link"
+               href="attendee-browse.html">
+                Browse events
+            </a>
+
+            <a class="sidebar-link"
+               href="attendee-browse.html#allEventsList">
+                All events
+            </a>
+
+            <a class="sidebar-link"
+               href="attendee-tickets.html">
+                My tickets
+            </a>
+
+            <a class="sidebar-link"
+               href="attendee-history.html">
+                Registration history
+            </a>
+
+            <a class="sidebar-link"
+               href="attendee-notifications.html">
+                Notifications
+            </a>
+
+            <a class="sidebar-link"
+               href="attendee-profile.html">
+                Profile
+            </a>
+
+            <a class="sidebar-link"
+               href="index.html#events">
+                Find events
+            </a>
+
+            <a class="sidebar-link"
+               href="index.html#contact">
+                Get support
+            </a>
+
+            <a class="sidebar-link logout"
+               href="login.html"
+               data-logout>
+                Log out
+            </a>
+
+        </aside>
+
+
+        <!-- =====================================================
+             MAIN DASHBOARD
+        ====================================================== -->
+
+        <main class="dashboard-main">
+
+            <!-- HEADER -->
+
+            <header class="dashboard-header">
+
+                <div>
+
+                    <span class="dashboard-eyebrow">
+                        Attendee dashboard
+                    </span>
+
+                    <h1>
+                        Your good plans.
+                    </h1>
+
+                </div>
+
+                <div class="profile-chip">
+
+                    <span class="profile-dot"></span>
+
+                    <span data-user-name>
+                        Attendee
+                    </span>
+
+                </div>
+
+            </header>
+
+
+            <!-- =================================================
+                 STATS
+            ================================================== -->
+
+            <section class="stats-grid">
+
+                <div class="stat-card">
+
+                    <span>
+                        Tickets booked
+                    </span>
+
+                    <strong id="attendeeTicketsBooked">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <span>
+                        Events booked
+                    </span>
+
+                    <strong id="attendeeEventsBooked">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <span>
+                        Events this week
+                    </span>
+
+                    <strong id="attendeeNewThisWeek">
+                        0
+                    </strong>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 MY PLANS / BROWSE EVENTS
+            ================================================== -->
+
+            <section
+                class="dashboard-panel attendee-section"
+                id="browse"
+            >
+
+                <div class="panel-heading">
+
+                    <div>
+
+                        <span class="panel-kicker">
+                            Browse events
+                        </span>
+
+                        <h2>
+                            Find your next plan
+                        </h2>
+
+                    </div>
+
+                    <span class="badge" id="attendeeBrowseThisWeek">
+                        24 this week
+                    </span>
+
+                </div>
+
+
+                <div class="attendee-events" id="attendeeFeaturedEvents">
+
+
+                    <!-- EVENT 1 -->
+
+                    <article class="attendee-event-card">
+
+                        <div class="event-card-date">
+
+                            MAY
+
+                            <strong>
+                                28
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Open Air Cinema: Moonrise
+                            </h3>
+
+                            <small>
+                                East Garden · 8:00 PM
+                            </small>
+
+                            <p>
+                                Bring a blanket for a beautiful
+                                evening under the stars.
+                            </p>
+
+                            <span class="availability available">
+                                42 tickets left
+                            </span>
+
+                        </div>
+
+
+                        <!-- DIRECT EVENT BOOKING LINK -->
+
+                        <a
+                            class="admin-action event-details-button"
+                            href="event-booking.html?event=Open%20Air%20Cinema%3A%20Moonrise"
+                        >
+                            View details
+                        </a>
+
+                    </article>
+
+
+                    <!-- EVENT 2 -->
+
+                    <article class="attendee-event-card">
+
+                        <div class="event-card-date">
+
+                            JUN
+
+                            <strong>
+                                01
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Sunday Slowdown Yoga
+                            </h3>
+
+                            <small>
+                                Common Ground · 10:30 AM
+                            </small>
+
+                            <p>
+                                Start your Sunday with movement,
+                                breath, and good company.
+                            </p>
+
+                            <span class="availability sold-out">
+                                Sold out
+                            </span>
+
+                        </div>
+
+
+                        <!-- DIRECT EVENT BOOKING LINK -->
+
+                        <a
+                            class="admin-action event-details-button"
+                            href="event-booking.html?event=Sunday%20Slowdown%20Yoga"
+                        >
+                            View details
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 MY TICKETS
+            ================================================== -->
+
+            <section
+                class="dashboard-panel attendee-section"
+                id="tickets"
+            >
+
+                <div class="panel-heading">
+
+                    <div>
+
+                        <span class="panel-kicker">
+                            My tickets
+                        </span>
+
+                        <h2>
+                            Your registrations
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <ul
+                    class="dashboard-list"
+                    id="ticketList"
+                >
+
+                    <li>
+
+                        <span>
+
+                            First Thursday: Local Artists
+
+                            <small>
+                                June 4 · Civic Hall
+                            </small>
+
+                        </span>
+
+                        <span class="badge">
+                            Confirmed
+                        </span>
+
+                    </li>
+
+
+                    <li>
+
+                        <span>
+
+                            Rooftop Radio Hour
+
+                            <small>
+                                May 26 · The Highline Roof
+                            </small>
+
+                        </span>
+
+                        <span class="badge">
+                            Confirmed
+                        </span>
+
+                    </li>
+
+                </ul>
+
+            </section>
+
+
+            <!-- =================================================
+                 UPDATES
+            ================================================== -->
+
+            <section
+                class="dashboard-panel attendee-section"
+                id="updates"
+            >
+
+                <div class="panel-heading">
+
+                    <div>
+
+                        <span class="panel-kicker">
+                            Updates
+                        </span>
+
+                        <h2>
+                            Event notifications
+                        </h2>
+
+                    </div>
+
+                    <span
+                        class="badge"
+                        id="updatesCount"
+                    >
+                        0 new
+                    </span>
+
+                </div>
+
+
+                <ul
+                    class="activity-list"
+                    id="attendeeUpdates"
+                >
+
+                    <li>
+
+                        <span class="activity-dot coral-dot"></span>
+
+                        <span>
+
+                            <b>
+                                Venue reminder
+                            </b>
+
+                            <small>
+                                Rooftop Radio Hour starts at 7:30 PM
+                            </small>
+
+                        </span>
+
+                    </li>
+
+
+                    <li>
+
+                        <span class="activity-dot yellow-dot"></span>
+
+                        <span>
+
+                            <b>
+                                New event near you
+                            </b>
+
+                            <small>
+                                Sunset Sketch Walk was just added
+                            </small>
+
+                        </span>
+
+                    </li>
+
+                </ul>
+
+            </section>
+
+
+            <!-- =================================================
+                 REGISTRATION HISTORY
+            ================================================== -->
+
+            <section
+                class="dashboard-panel attendee-section"
+                id="history"
+            >
+
+                <div class="panel-heading">
+
+                    <div>
+
+                        <span class="panel-kicker">
+                            Registration history
+                        </span>
+
+                        <h2>
+                            Past registrations
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <ul
+                    class="dashboard-list"
+                    id="registrationHistory"
+                >
+
+                    <li>
+
+                        <span>
+
+                            City Garden Yoga
+
+                            <small>
+                                Completed · April 18
+                            </small>
+
+                        </span>
+
+                        <span class="badge">
+                            Attended
+                        </span>
+
+                    </li>
+
+
+                    <li>
+
+                        <span>
+
+                            Local Makers Meetup
+
+                            <small>
+                                Completed · March 30
+                            </small>
+
+                        </span>
+
+                        <span class="badge">
+                            Attended
+                        </span>
+
+                    </li>
+
+                </ul>
+
+            </section>
+
+
+            <!-- =================================================
+                 PROFILE
+            ================================================== -->
+
+            <section
+                class="dashboard-panel attendee-section"
+                id="profile"
+            >
+
+                <div class="panel-heading">
+
+                    <div>
+
+                        <span class="panel-kicker">
+                            Profile
+                        </span>
+
+                        <h2>
+                            Your Evently profile
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <form
+                    class="profile-form"
+                    id="profileForm"
+                >
+
+                    <label>
+
+                        Name
+
+                        <input
+                            id="profileName"
+                            type="text"
+                            data-user-profile-name
+                            required
+                        >
+
+                    </label>
+
+
+                    <label>
+
+                        Email
+
+                        <input
+                            id="profileEmail"
+                            type="email"
+                            data-user-profile-email
+                            required
+                        >
+
+                    </label>
+
+
+                    <button
+                        class="admin-action"
+                        type="submit"
+                    >
+                        Save profile
+                    </button>
+
+                </form>
+
+
+                <p
+                    class="admin-confirmation"
+                    id="profileConfirmation"
+                    role="status"
+                ></p>
+
+            </section>
+
+
+            <!-- =================================================
+                 ALL EVENTS
+            ================================================== -->
+
+            <section
+                class="dashboard-panel attendee-section"
+                id="all-events"
+            >
+
+                <div class="panel-heading">
+
+                    <div>
+
+                        <span class="panel-kicker">
+                            Complete event list
+                        </span>
+
+                        <h2>
+                            All events
+                        </h2>
+
+                    </div>
+
+                    <span class="badge">
+                        Live listings
+                    </span>
+
+                </div>
+
+
+                <div class="attendee-events all-events-grid" id="allAttendeeEvents">
+
+
+                    <!-- BROOKSIDE -->
+
+                    <article class="attendee-event-card">
+
+                        <div class="event-card-date">
+
+                            MAY
+
+                            <strong>
+                                24
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Brookside Night Market
+                            </h3>
+
+                            <small>
+                                The Foundry · 6:00 PM
+                            </small>
+
+                            <p>
+                                Local food, handmade goods,
+                                and live acoustic sets.
+                            </p>
+
+                            <span class="availability available">
+                                42 tickets left
+                            </span>
+
+                        </div>
+
+
+                        <a
+                            class="admin-action event-details-button"
+                            href="event-booking.html?event=Brookside%20Night%20Market"
+                        >
+                            View details
+                        </a>
+
+                    </article>
+
+
+                    <!-- MAKE SOMETHING SUNDAY -->
+
+                    <article class="attendee-event-card">
+
+                        <div class="event-card-date">
+
+                            MAY
+
+                            <strong>
+                                25
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Make Something Sunday
+                            </h3>
+
+                            <small>
+                                North Loop Studio · 11:00 AM
+                            </small>
+
+                            <p>
+                                A creative workshop for curious
+                                makers.
+                            </p>
+
+                            <span class="availability available">
+                                28 tickets left
+                            </span>
+
+                        </div>
+
+
+                        <a
+                            class="admin-action event-details-button"
+                            href="event-booking.html?event=Make%20Something%20Sunday"
+                        >
+                            View details
+                        </a>
+
+                    </article>
+
+
+                    <!-- ROOFTOP RADIO -->
+
+                    <article class="attendee-event-card">
+
+                        <div class="event-card-date">
+
+                            MAY
+
+                            <strong>
+                                26
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Rooftop Radio Hour
+                            </h3>
+
+                            <small>
+                                The Highline Roof · 7:30 PM
+                            </small>
+
+                            <p>
+                                Local artists, sunset views,
+                                and a seasonal menu.
+                            </p>
+
+                            <span class="availability available">
+                                16 tickets left
+                            </span>
+
+                        </div>
+
+
+                        <a
+                            class="admin-action event-details-button"
+                            href="event-booking.html?event=Rooftop%20Radio%20Hour"
+                        >
+                            View details
+                        </a>
+
+                    </article>
+
+
+                    <!-- FIRST THURSDAY -->
+
+                    <article class="attendee-event-card">
+
+                        <div class="event-card-date">
+
+                            JUN
+
+                            <strong>
+                                04
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                First Thursday: Local Artists
+                            </h3>
+
+                            <small>
+                                Civic Hall · 6:30 PM
+                            </small>
+
+                            <p>
+                                Meet local artists and discover
+                                new work.
+                            </p>
+
+                            <span class="availability available">
+                                35 tickets left
+                            </span>
+
+                        </div>
+
+
+                        <a
+                            class="admin-action event-details-button"
+                            href="event-booking.html?event=First%20Thursday%3A%20Local%20Artists"
+                        >
+                            View details
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- =====================================================
+         OLD EVENT MODAL REMOVED
+         
+         View details now directly opens:
+         event-booking.html
+    ====================================================== -->
+
+
+    <!-- =====================================================
+         PAYMENT MODAL
+    ====================================================== -->
+
+    <div
+        class="attendee-modal"
+        id="paymentModal"
+        aria-hidden="true"
+    >
+
+        <div class="attendee-modal-card">
+
+            <button
+                class="close-preview"
+                id="closePaymentModal"
+                type="button"
+            >
+                Close
+            </button>
+
+
+            <span class="panel-kicker">
+                Demo booking
+            </span>
+
+
+            <h2>
+                Confirm reservation
+            </h2>
+
+
+            <div class="booking-summary">
+
+                <span id="paymentEventName">
+                    Event
+                </span>
+
+                <strong id="paymentAmount">
+                    $18.00
+                </strong>
+
+            </div>
+
+
+            <form
+                class="create-event-form"
+                id="paymentForm"
+            >
+
+                <input
+                    id="paymentMethod"
+                    type="hidden"
+                    value="DEMO"
+                >
+
+
+                <p>
+                    This demo reserves tickets only.
+                    It does not collect payment details
+                    or charge your account.
+                </p>
+
+
+                <button
+                    class="admin-action payment-submit"
+                    id="paymentSubmit"
+                    type="submit"
+                >
+                    Reserve tickets
+                </button>
+
+            </form>
+
+
+            <p
+                class="admin-confirmation"
+                id="paymentConfirmation"
+            ></p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="api-client.js"></script>
+    <script src="dashboard.js"></script>
+
+</body>
+
+</html>

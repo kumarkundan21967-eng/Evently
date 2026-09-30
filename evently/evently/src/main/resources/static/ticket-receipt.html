@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Ticket Receipt | Evently</title>
+
+
+    <!-- GOOGLE FONTS -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- RECEIPT CSS -->
+
+    <link
+        rel="stylesheet"
+        href="receipt.css"
+    >
+
+</head>
+
+
+<body>
+
+<main class="receipt-page">
+
+
+    <!-- =====================================================
+         TOP BAR
+    ====================================================== -->
+
+    <div class="receipt-top">
+
+        <a href="index.html">
+
+            <img
+                src="logo.png"
+                alt="Evently logo"
+            >
+
+        </a>
+
+
+        <span
+            class="receipt-status"
+            id="receiptStatus"
+        >
+            Loading booking...
+        </span>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         RECEIPT CARD
+    ====================================================== -->
+
+    <section
+        class="receipt-card"
+        id="receiptCard"
+    >
+
+
+        <!-- =================================================
+             RECEIPT HEADER
+        ================================================== -->
+
+        <div class="receipt-heading">
+
+            <div>
+
+                <span class="eyebrow">
+                    Your Evently ticket
+                </span>
+
+
+                <h1 id="receiptHeading">
+                    Loading your ticket...
+                </h1>
+
+
+                <p id="receiptMessage">
+                    Retrieving the saved booking from Evently.
+                </p>
+
+            </div>
+
+
+            <div class="ticket-mark">
+                ✓
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             EVENT DETAILS
+        ================================================== -->
+
+        <div class="receipt-event">
+
+            <span class="eyebrow">
+                Event details
+            </span>
+
+
+            <h2 id="receiptEvent">
+                Event
+            </h2>
+
+
+            <p id="receiptLocation">
+                Location
+            </p>
+
+
+            <p id="receiptDate">
+                Date and time
+            </p>
+
+
+            <p id="receiptSlot">
+                Time slot
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             TICKET INFORMATION
+        ================================================== -->
+
+        <div class="receipt-grid">
+
+
+            <!-- ATTENDEE -->
+
+            <div>
+
+                <span>
+                    Attendee
+                </span>
+
+                <strong id="receiptName">
+                    -
+                </strong>
+
+            </div>
+
+
+
+            <!-- EMAIL -->
+
+            <div>
+
+                <span>
+                    Email
+                </span>
+
+                <strong id="receiptEmail">
+                    -
+                </strong>
+
+            </div>
+
+
+
+            <!-- TICKET TYPE -->
+
+            <div>
+
+                <span>
+                    Ticket type
+                </span>
+
+                <strong id="receiptTicket">
+                    -
+                </strong>
+
+            </div>
+
+
+
+            <!-- RECEIPT ID -->
+
+            <div>
+
+                <span>
+                    Receipt ID
+                </span>
+
+                <strong id="receiptId">
+                    -
+                </strong>
+
+            </div>
+
+
+
+            <!-- PAYMENT METHOD -->
+
+            <div>
+
+                <span>
+                    Booking method
+                </span>
+
+                <strong id="receiptMethod">
+                    DEMO
+                </strong>
+
+            </div>
+
+
+
+            <!-- BOOKING STATUS -->
+
+            <div>
+
+                <span>
+                    Booking status
+                </span>
+
+                <strong
+                    class="paid"
+                    id="receiptPayment"
+                >
+                    BOOKED
+                </strong>
+
+            </div>
+
+
+
+            <!-- AMOUNT -->
+
+            <div>
+
+                <span>
+                    Amount
+                </span>
+
+                <strong id="receiptAmount">
+                    -
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             BOOKED MEMBERS
+        ================================================== -->
+
+        <div class="receipt-members">
+
+            <span class="eyebrow">
+                Booked members
+            </span>
+
+
+            <div id="receiptMembers"></div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             QR TICKET
+        ================================================== -->
+
+        <div
+            class="qr-ticket"
+            id="qrTicketSection"
+        >
+
+            <div>
+
+                <span class="eyebrow">
+                    Entry pass
+                </span>
+
+
+                <h2>
+                    Scan this QR ticket
+                </h2>
+
+
+                <p>
+                    Show this code at the event entrance
+                    for quick verification.
+                </p>
+
+            </div>
+
+
+            <img
+                id="ticketQr"
+                src=""
+                alt="QR ticket verification code"
+            >
+
+        </div>
+
+
+
+        <!-- =================================================
+             ACTIONS
+        ================================================== -->
+
+        <div class="receipt-actions">
+
+            <button
+                class="receipt-button primary"
+                id="printReceipt"
+                type="button"
+            >
+                Print ticket
+            </button>
+
+
+            <a
+                class="receipt-button secondary"
+                href="attendee-dashboard.html"
+            >
+                Back to dashboard
+            </a>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <p class="receipt-footer">
+
+        Keep this ticket available when you arrive at the event.
+
+    </p>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     API CLIENT
+====================================================== -->
+
+<script src="api-client.js"></script>
+
+
+
+<script>
+
+    // =====================================================
+    // BACKEND
+    // =====================================================
+
+    const API_BASE =
+        "http://localhost:8080";
+
+
+
+    // =====================================================
+    // GET TICKET ID FROM URL
+    //
+    // Example:
+    // ticket-receipt.html?id=17
+    // =====================================================
+
+    const urlParams =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    const ticketId =
+        urlParams.get("id");
+
+
+
+    // =====================================================
+    // ATTENDEE SESSION
+    // =====================================================
+
+    let attendeeSession = {};
+
+
+
+    try {
+
+        attendeeSession =
+            JSON.parse(
+                sessionStorage.getItem(
+                    "eventlySession"
+                ) ||
+                localStorage.getItem(
+                    "eventlyUser"
+                ) ||
+                "{}"
+            );
+
+    } catch (error) {
+
+        console.error(
+            "Unable to read attendee session:",
+            error
+        );
+
+        attendeeSession = {};
+
+    }
+
+
+
+    // =====================================================
+    // AUTH HEADERS
+    // =====================================================
+
+    function getAuthHeaders() {
+
+        const sessionUser =
+            JSON.parse(
+                sessionStorage.getItem(
+                    "eventlySession"
+                ) ||
+                "null"
+            );
+
+
+        const token =
+            sessionUser?.accessToken ||
+            attendeeSession?.accessToken ||
+            "";
+
+
+        const headers = {
+            "Content-Type":
+                "application/json"
+        };
+
+
+        if (token) {
+
+            headers["Authorization"] =
+                "Bearer " + token;
+
+        }
+
+
+        return headers;
+
+    }
+
+
+
+    // =====================================================
+    // SET TEXT HELPER
+    // =====================================================
+
+    function setText(
+        elementId,
+        value,
+        fallback = "-"
+    ) {
+
+        const element =
+            document.getElementById(
+                elementId
+            );
+
+
+        if (!element) {
+
+            return;
+
+        }
+
+
+        if (
+            value === null ||
+            value === undefined ||
+            String(value).trim() === ""
+        ) {
+
+            element.textContent =
+                fallback;
+
+        } else {
+
+            element.textContent =
+                value;
+
+        }
+
+    }
+
+
+
+    // =====================================================
+    // LOAD RECEIPT FROM BACKEND
+    // =====================================================
+
+    async function loadReceipt() {
+
+        const statusElement =
+            document.getElementById(
+                "receiptStatus"
+            );
+
+
+        try {
+
+
+            // -------------------------------------------------
+            // CHECK TICKET ID
+            // -------------------------------------------------
+
+            if (!ticketId) {
+
+                throw new Error(
+                    "Ticket ID is missing from the receipt link."
+                );
+
+            }
+
+
+            console.log(
+                "Loading ticket from backend..."
+            );
+
+
+            console.log(
+                "Ticket ID:",
+                ticketId
+            );
+
+
+
+            // -------------------------------------------------
+            // API URL
+            // -------------------------------------------------
+
+            const ticketUrl =
+                `${API_BASE}/api/tickets/${encodeURIComponent(ticketId)}`;
+
+
+            console.log(
+                "Ticket API URL:",
+                ticketUrl
+            );
+
+
+
+            // -------------------------------------------------
+            // GET TICKET
+            // -------------------------------------------------
+
+            const response =
+                await fetch(
+                    ticketUrl,
+                    {
+                        method: "GET",
+                        headers:
+                            getAuthHeaders()
+                    }
+                );
+
+
+            console.log(
+                "Ticket API status:",
+                response.status
+            );
+
+
+
+            // -------------------------------------------------
+            // READ RESPONSE
+            // -------------------------------------------------
+
+            const responseText =
+                await response.text();
+
+
+            console.log(
+                "Ticket API response:",
+                responseText
+            );
+
+
+
+            if (!response.ok) {
+
+                if (
+                    response.status === 401
+                ) {
+
+                    throw new Error(
+                        "Your login session has expired. Please log in again."
+                    );
+
+                }
+
+
+                if (
+                    response.status === 403
+                ) {
+
+                    throw new Error(
+                        "You are not authorized to view this ticket."
+                    );
+
+                }
+
+
+                if (
+                    response.status === 404
+                ) {
+
+                    throw new Error(
+                        "Ticket not found in Evently."
+                    );
+
+                }
+
+
+                throw new Error(
+                    `Ticket service returned HTTP ${response.status}.`
+                );
+
+            }
+
+
+
+            // -------------------------------------------------
+            // PARSE TICKET
+            // -------------------------------------------------
+
+            let ticket;
+
+
+            try {
+
+                ticket =
+                    JSON.parse(
+                        responseText
+                    );
+
+            } catch (error) {
+
+                throw new Error(
+                    "Backend returned invalid ticket data."
+                );
+
+            }
+
+
+
+            console.log(
+                "Ticket loaded successfully:",
+                ticket
+            );
+
+
+
+            // =================================================
+            // EVENT DETAILS
+            // =================================================
+
+            setText(
+                "receiptEvent",
+                ticket.eventName ||
+                (
+                    ticket.eventId
+                        ? `Event #${ticket.eventId}`
+                        : "Event"
+                ),
+                "Event"
+            );
+
+
+            setText(
+                "receiptLocation",
+                ticket.eventLocation,
+                "Venue to be announced"
+            );
+
+
+            setText(
+                "receiptDate",
+                ticket.eventDate,
+                "Date to be announced"
+            );
+
+
+            setText(
+                "receiptSlot",
+                ticket.eventTime,
+                "Time to be announced"
+            );
+
+
+
+            // =================================================
+            // ATTENDEE DETAILS
+            // =================================================
+
+            setText(
+                "receiptName",
+                ticket.attendeeName,
+                "Attendee"
+            );
+
+
+            setText(
+                "receiptEmail",
+                ticket.attendeeEmail,
+                "-"
+            );
+
+
+
+            // =================================================
+            // TICKET DETAILS
+            // =================================================
+
+            setText(
+                "receiptTicket",
+                ticket.ticketType,
+                "General Admission"
+            );
+
+
+
+            // =================================================
+            // RECEIPT ID
+            // =================================================
+
+            setText(
+                "receiptId",
+                ticket.id
+                    ? `EV-${ticket.id}`
+                    : "-",
+                "-"
+            );
+
+
+
+            // =================================================
+            // PAYMENT METHOD
+            // =================================================
+
+            setText(
+                "receiptMethod",
+                ticket.paymentMethod,
+                "DEMO"
+            );
+
+
+
+            // =================================================
+            // BOOKING STATUS
+            // =================================================
+
+            const bookingStatus =
+                ticket.status ||
+                "BOOKED";
+
+
+            setText(
+                "receiptPayment",
+                bookingStatus,
+                "BOOKED"
+            );
+
+
+            setText(
+                "receiptStatus",
+                bookingStatus,
+                "BOOKED"
+            );
+
+
+
+            // =================================================
+            // AMOUNT
+            // =================================================
+
+            const quantity =
+                Number(
+                    ticket.quantity || 1
+                );
+
+
+            const price =
+                Number(
+                    ticket.price || 0
+                );
+
+
+            const total =
+                price * quantity;
+
+
+            const ticketWord =
+                quantity === 1
+                    ? "ticket"
+                    : "tickets";
+
+
+            setText(
+                "receiptAmount",
+                `$${total.toFixed(2)} (${quantity} ${ticketWord})`,
+                "$0.00"
+            );
+
+
+
+            // =================================================
+            // BOOKED MEMBERS
+            // =================================================
+
+            const members =
+                document.getElementById(
+                    "receiptMembers"
+                );
+
+
+            if (members) {
+
+                members.innerHTML = "";
+
+
+                const member =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                member.textContent =
+                    ticket.attendeeName ||
+                    attendeeSession.name ||
+                    "Attendee";
+
+
+                members.appendChild(
+                    member
+                );
+
+            }
+
+
+
+            // =================================================
+            // QR CODE
+            // =================================================
+
+            const qrTicketSection =
+                document.getElementById(
+                    "qrTicketSection"
+                );
+
+
+            const qrImage =
+                document.getElementById(
+                    "ticketQr"
+                );
+
+
+            const qrData = {
+
+                ticketId:
+                    ticket.id,
+
+                eventId:
+                    ticket.eventId,
+
+                attendeeEmail:
+                    ticket.attendeeEmail,
+
+                status:
+                    ticket.status
+
+            };
+
+
+            const qrText =
+                encodeURIComponent(
+                    JSON.stringify(
+                        qrData
+                    )
+                );
+
+
+            qrImage.src =
+                `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${qrText}`;
+
+
+            qrImage.alt =
+                `QR ticket for Ticket EV-${ticket.id}`;
+
+
+            qrImage.onerror =
+                () => {
+
+                    console.error(
+                        "QR code could not be loaded."
+                    );
+
+                    if (qrTicketSection) {
+
+                        qrTicketSection.hidden =
+                            true;
+
+                    }
+
+                };
+
+
+
+            // =================================================
+            // FINAL RECEIPT MESSAGE
+            // =================================================
+
+            setText(
+                "receiptHeading",
+                "Registration confirmed."
+            );
+
+
+            setText(
+                "receiptMessage",
+                "Your booking has been saved by Evently."
+            );
+
+
+            console.log(
+                "Receipt loaded successfully."
+            );
+
+
+        } catch (error) {
+
+            console.error(
+                "Unable to load ticket receipt:",
+                error
+            );
+
+
+            setText(
+                "receiptStatus",
+                "Receipt unavailable"
+            );
+
+
+            setText(
+                "receiptHeading",
+                "Could not load your ticket."
+            );
+
+
+            setText(
+                "receiptMessage",
+                error.message ||
+                "Please return to My Tickets and try again."
+            );
+
+
+            const qrTicketSection =
+                document.getElementById(
+                    "qrTicketSection"
+                );
+
+
+            if (qrTicketSection) {
+
+                qrTicketSection.hidden =
+                    true;
+
+            }
+
+        }
+
+    }
+
+
+
+    // =====================================================
+    // PRINT RECEIPT
+    // =====================================================
+
+    document
+        .getElementById(
+            "printReceipt"
+        )
+        ?.addEventListener(
+            "click",
+            () => {
+
+                window.print();
+
+            }
+        );
+
+
+
+    // =====================================================
+    // LOAD RECEIPT
+    // =====================================================
+
+    loadReceipt();
+
+</script>
+
+
+</body>
+
+</html>

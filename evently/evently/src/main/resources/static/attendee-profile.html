@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Profile | Evently</title>
+
+    <link rel="stylesheet" href="attendee-pages.css">
+</head>
+
+<body>
+
+    <div class="page-shell">
+
+        <!-- Sidebar -->
+        <aside class="page-sidebar">
+
+            <!-- Logo -->
+            <a class="page-logo" href="index.html">
+                <img src="logo.png" alt="Evently">
+                Evently
+            </a>
+
+            <span class="page-nav-label">
+                Attendee space
+            </span>
+
+            <!-- Navigation -->
+            <nav class="page-nav">
+
+                <a href="attendee-browse.html">
+                    Browse events
+                </a>
+
+                <a href="attendee-tickets.html">
+                    My tickets
+                </a>
+
+                <a href="attendee-history.html">
+                    Registration history
+                </a>
+
+                <a href="attendee-notifications.html">
+                    Notifications
+                </a>
+
+                <a class="active" href="attendee-profile.html">
+                    Profile
+                </a>
+
+                <a class="logout" href="login.html" data-logout>
+                    Log out
+                </a>
+
+            </nav>
+
+        </aside>
+
+        <!-- Main Content -->
+        <main class="page-main">
+
+            <!-- Header -->
+            <header class="page-top">
+
+                <div>
+
+                    <span class="kicker">
+                        Your identity
+                    </span>
+
+                    <h1>
+                        Profile.
+                    </h1>
+
+                    <p>
+                        Keep your details ready for every booking.
+                    </p>
+
+                </div>
+
+            </header>
+
+            <!-- Profile Card -->
+            <section class="premium-card">
+
+                <form class="profile-form" id="profileForm">
+
+                    <!-- Name -->
+                    <label>
+                        Name
+
+                        <input
+                            id="profileName"
+                            required
+                        >
+                    </label>
+
+                    <!-- Email -->
+                    <label>
+                        Email
+
+                        <input
+                            id="profileEmail"
+                            type="email"
+                            required
+                        >
+                    </label>
+
+                    <!-- Submit Button -->
+                    <button
+                        class="premium-button"
+                        type="submit"
+                    >
+                        Save profile
+                    </button>
+
+                    <!-- Success Message -->
+                    <p
+                        id="profileMessage"
+                        class="success"
+                    ></p>
+
+                </form>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- JavaScript -->
+    <script src="api-client.js"></script><script src="attendee-pages.js"></script>
+
+</body>
+
+</html>
