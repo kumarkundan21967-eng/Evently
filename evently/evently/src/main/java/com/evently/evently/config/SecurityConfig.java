@@ -10,33 +10,24 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-
         http
-            .csrf(csrf -> csrf.disable())
-
             .authorizeHttpRequests(auth -> auth
-
-                // Static frontend resources
+                // Allow static resources (CSS, JS, images, HTML)
                 .requestMatchers(
-                    "/",
-                    "/index.html",
-                    "/**/*.html",
                     "/**/*.css",
                     "/**/*.js",
                     "/**/*.png",
                     "/**/*.jpg",
                     "/**/*.jpeg",
+                    "/**/*.gif",
                     "/**/*.svg",
-                    "/**/*.ico",
-                    "/favicon.ico"
+                    "/**/*.html"
                 ).permitAll()
-
-                // API authorization is handled separately
-                .anyRequest().permitAll()
+                // Secure other endpoints
+                .anyRequest().authenticated()
             )
-
-            .formLogin(form -> form.disable())
-            .httpBasic(basic -> basic.disable());
+            // Disable CSRF for simplicity (optional, depends on your app)
+            .csrf(csrf -> csrf.disable());
 
         return http.build();
     }
