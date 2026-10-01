@@ -12,31 +12,29 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http
-            // API requests are handled by ApiAuthorizationInterceptor
             .csrf(csrf -> csrf.disable())
 
             .authorizeHttpRequests(auth -> auth
 
-                // Allow frontend static resources
+                // Static frontend resources
                 .requestMatchers(
                     "/",
                     "/index.html",
-                    "/*.html",
-                    "/*.css",
-                    "/*.js",
-                    "/*.png",
-                    "/*.jpg",
-                    "/*.jpeg",
-                    "/*.svg",
-                    "/*.ico",
+                    "/**/*.html",
+                    "/**/*.css",
+                    "/**/*.js",
+                    "/**/*.png",
+                    "/**/*.jpg",
+                    "/**/*.jpeg",
+                    "/**/*.svg",
+                    "/**/*.ico",
                     "/favicon.ico"
                 ).permitAll()
 
-                // ApiAuthorizationInterceptor handles API authorization
+                // API authorization is handled separately
                 .anyRequest().permitAll()
             )
 
-            // Do not show Spring Security's default /login page
             .formLogin(form -> form.disable())
             .httpBasic(basic -> basic.disable());
 

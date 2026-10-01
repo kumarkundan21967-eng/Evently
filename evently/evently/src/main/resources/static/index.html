@@ -1,1300 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-        content="Evently is a better way to find memorable events near you.">
-
-    <title>Evently | Find your next good time</title>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap"
-        rel="stylesheet">
-
-    <!-- Evently CSS -->
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Evently is a better way to find memorable events near you.">
+	<title>Evently | Find your next good time</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+	<script src="https://unpkg.com/lucide@latest"></script>
 </head>
-
 <body>
+	<div class="announcement">Fresh plans for your calendar, every week</div>
+	<header class="navbar">
+		<div class="nav-inner">
+			<a class="logo" href="#home" aria-label="Evently home"><img class="brand-logo" src="logo.png" alt="Evently logo"></a>
+			<nav class="nav-links" id="navLinks" aria-label="Main navigation">
+				<a href="#home">Home</a><a href="#events">Events</a><a href="#about">About</a><a href="#contact">Contact</a>
+			</nav>
+			<div class="nav-actions" id="navActions"><a class="nav-login" href="login.html">Login</a><a class="btn btn-primary" href="register.html">Register</a></div>
+			<button class="menu-toggle" id="menuToggle" aria-label="Open navigation"><i data-lucide="menu"></i></button>
+		</div>
+	</header>
 
-    <div class="announcement">
-        Fresh plans for your calendar, every week
-    </div>
+	<main>
+		<section class="hero" id="home">
+			<div class="container hero-grid">
+				<div>
+					<p class="eyebrow">Your city, switched on</p>
+					<h1>Make room for <em>good</em> things.</h1>
+					<p class="hero-copy">Discover the concerts, workshops, pop-ups, and little moments that make a place feel like home.</p>
+					<form class="search-box" id="searchForm"><i data-lucide="search" width="18"></i><input id="eventSearch" type="search" placeholder="Search events, places, or vibes" aria-label="Search events"><button class="btn btn-primary" type="submit">Find an event</button></form>
+				</div>
+				<div class="hero-art"><div class="hero-image" role="img" aria-label="People enjoying a live music event"></div><div class="date-note"><strong id="eventCount">—</strong><span>published events</span></div></div>
+			</div>
+		</section>
 
-    <!-- ================= NAVBAR ================= -->
+		<section class="section featured" id="events">
+			<div class="container">
+				<div class="section-header"><div><p class="eyebrow">Picked for you</p><h2>Featured events</h2></div><a class="text-link" href="#upcoming">See all events <i data-lucide="arrow-up-right" width="16"></i></a></div>
+				<div class="event-grid" id="eventGrid" aria-live="polite"><p class="no-results" id="eventLoading" style="display:block">Loading published events…</p></div>
+				<p class="no-results" id="noResults">No events found. Try a different search.</p>
+			</div>
+		</section>
 
-    <header class="navbar">
+		<section class="section upcoming" id="upcoming">
+			<div class="container"><div class="section-header"><div><p class="eyebrow">Keep your plans open</p><h2>Coming up</h2></div><p>Small plans count. Here are a few worth making.</p></div>
+				<div class="upcoming-list" id="upcomingList"><p class="no-results" style="display:block">Loading upcoming events…</p></div>
+			</div>
+		</section>
 
-        <div class="nav-inner">
+		<section class="section about" id="about"><div class="container about-grid"><div><p class="eyebrow about-eyebrow">About Evently</p><h2>More living.<br><span>Less scrolling.</span></h2></div><div><p class="about-copy">Evently makes it easy to find what is happening around you, from the big nights out to the tiny gatherings you would never hear about otherwise. We believe a full calendar should feel like an invitation, not another task.</p></div></div></section>
 
-            <a class="logo" href="#home" aria-label="Evently home">
-                <img
-                    class="brand-logo"
-                    src="logo.png"
-                    alt="Evently logo">
-            </a>
+		<section class="section contact" id="contact"><div class="container contact-grid"><div><p class="eyebrow">Say hello</p><h2>Have an event<br>to share?</h2><p class="contact-copy">Tell us what you are planning. We love helping good people find a good crowd.</p></div><form class="contact-form" id="contactForm"><input required type="text" placeholder="Your name" aria-label="Your name"><input required type="email" placeholder="Email address" aria-label="Email address"><textarea required placeholder="Tell us a little about it" aria-label="Tell us about your event"></textarea><button class="btn btn-dark" type="submit">Send it over <i data-lucide="arrow-up-right" width="16"></i></button></form></div></section>
+	</main>
 
-            <nav
-                class="nav-links"
-                id="navLinks"
-                aria-label="Main navigation">
+<footer>
+    <div class="container">
 
-                <a href="#home">Home</a>
-                <a href="#events">Events</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
+        <div class="footer-top">
 
-            </nav>
-
-            <div class="nav-actions" id="navActions">
-
-                <a
-                    class="nav-login"
-                    href="login.html">
-                    Login
+            <!-- Footer Brand -->
+            <div class="footer-brand">
+                <a class="logo" href="#home">
+                    <img
+                        class="brand-logo footer-logo"
+                        src="logo.png"
+                        alt="Evently logo"
+                    >
                 </a>
 
-                <a
-                    class="btn btn-primary"
-                    href="register.html">
-                    Register
-                </a>
-
+                <p>Good things are happening. Go find them.</p>
             </div>
 
-            <button
-                class="menu-toggle"
-                id="menuToggle"
-                aria-label="Open navigation">
+            <!-- Footer Links -->
+            <div class="footer-links">
 
-                <i data-lucide="menu"></i>
+                <!-- Explore -->
+                <div>
+                    <strong>Explore</strong>
+                    <a href="#events">Featured events</a>
+                    <a href="#upcoming">Upcoming events</a>
+                </div>
 
-            </button>
+                <!-- Evently -->
+                <div>
+                    <strong>Evently</strong>
+                    <a href="#about">About us</a>
+                    <a href="#contact">Contact</a>
+                </div>
 
+                <!-- Account -->
+                <div>
+                    <strong>Account</strong>
+                    <a href="login.html">Login</a>
+                    <a href="register.html">Register</a>
+                </div>
+
+            </div>
         </div>
 
-    </header>
-
-
-    <!-- ================= MAIN ================= -->
-
-    <main>
-
-        <!-- ================= HERO ================= -->
-
-        <section class="hero" id="home">
-
-            <div class="container hero-grid">
-
-                <div>
-
-                    <p class="eyebrow">
-                        Your city, switched on
-                    </p>
-
-                    <h1>
-                        Make room for <em>good</em> things.
-                    </h1>
-
-                    <p class="hero-copy">
-                        Discover the concerts, workshops, pop-ups,
-                        and little moments that make a place feel like home.
-                    </p>
-
-                    <form
-                        class="search-box"
-                        id="searchForm">
-
-                        <i
-                            data-lucide="search"
-                            width="18">
-                        </i>
-
-                        <input
-                            id="eventSearch"
-                            type="search"
-                            placeholder="Search events, places, or vibes"
-                            aria-label="Search events">
-
-                        <button
-                            class="btn btn-primary"
-                            type="submit">
-
-                            Find an event
-
-                        </button>
-
-                    </form>
-
-                </div>
-
-
-                <div class="hero-art">
-
-                    <div
-                        class="hero-image"
-                        role="img"
-                        aria-label="People enjoying a live music event">
-                    </div>
-
-                    <div class="date-note">
-
-                        <strong id="eventCount">
-                            —
-                        </strong>
-
-                        <span>
-                            published events
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= FEATURED EVENTS ================= -->
-
-        <section
-            class="section featured"
-            id="events">
-
-            <div class="container">
-
-                <div class="section-header">
-
-                    <div>
-
-                        <p class="eyebrow">
-                            Picked for you
-                        </p>
-
-                        <h2>
-                            Featured events
-                        </h2>
-
-                    </div>
-
-                    <a
-                        class="text-link"
-                        href="#upcoming">
-
-                        See all events
-
-                        <i
-                            data-lucide="arrow-up-right"
-                            width="16">
-                        </i>
-
-                    </a>
-
-                </div>
-
-
-                <div
-                    class="event-grid"
-                    id="eventGrid"
-                    aria-live="polite">
-
-                    <p
-                        class="no-results"
-                        id="eventLoading"
-                        style="display:block">
-
-                        Loading published events…
-
-                    </p>
-
-                </div>
-
-
-                <p
-                    class="no-results"
-                    id="noResults">
-
-                    No events found. Try a different search.
-
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= UPCOMING ================= -->
-
-        <section
-            class="section upcoming"
-            id="upcoming">
-
-            <div class="container">
-
-                <div class="section-header">
-
-                    <div>
-
-                        <p class="eyebrow">
-                            Keep your plans open
-                        </p>
-
-                        <h2>
-                            Coming up
-                        </h2>
-
-                    </div>
-
-                    <p>
-                        Small plans count.
-                        Here are a few worth making.
-                    </p>
-
-                </div>
-
-
-                <div
-                    class="upcoming-list"
-                    id="upcomingList">
-
-                    <p
-                        class="no-results"
-                        style="display:block">
-
-                        Loading upcoming events…
-
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= ABOUT ================= -->
-
-        <section
-            class="section about"
-            id="about">
-
-            <div class="container about-grid">
-
-                <div>
-
-                    <p class="eyebrow about-eyebrow">
-                        About Evently
-                    </p>
-
-                    <h2>
-                        More living.
-                        <br>
-                        <span>Less scrolling.</span>
-                    </h2>
-
-                </div>
-
-
-                <div>
-
-                    <p class="about-copy">
-
-                        Evently makes it easy to find what is happening
-                        around you, from the big nights out to the tiny
-                        gatherings you would never hear about otherwise.
-
-                        We believe a full calendar should feel like
-                        an invitation, not another task.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= CONTACT ================= -->
-
-        <section
-            class="section contact"
-            id="contact">
-
-            <div class="container contact-grid">
-
-                <div>
-
-                    <p class="eyebrow">
-                        Say hello
-                    </p>
-
-                    <h2>
-                        Have an event
-                        <br>
-                        to share?
-                    </h2>
-
-                    <p class="contact-copy">
-
-                        Tell us what you are planning.
-                        We love helping good people find a good crowd.
-
-                    </p>
-
-                </div>
-
-
-                <form
-                    class="contact-form"
-                    id="contactForm">
-
-                    <input
-                        required
-                        type="text"
-                        placeholder="Your name"
-                        aria-label="Your name">
-
-                    <input
-                        required
-                        type="email"
-                        placeholder="Email address"
-                        aria-label="Email address">
-
-                    <textarea
-                        required
-                        placeholder="Tell us a little about it"
-                        aria-label="Tell us about your event"></textarea>
-
-                    <button
-                        class="btn btn-dark"
-                        type="submit">
-
-                        Send it over
-
-                        <i
-                            data-lucide="arrow-up-right"
-                            width="16">
-                        </i>
-
-                    </button>
-
-                </form>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- ================= FOOTER ================= -->
-
-    <footer>
-
-        <div class="container">
-
-            <div class="footer-top">
-
-                <!-- Footer Brand -->
-
-                <div class="footer-brand">
-
-                    <a
-                        class="logo"
-                        href="#home">
-
-                        <img
-                            class="brand-logo footer-logo"
-                            src="logo.png"
-                            alt="Evently logo">
-
-                    </a>
-
-                    <p>
-                        Good things are happening.
-                        Go find them.
-                    </p>
-
-                </div>
-
-
-                <!-- Footer Links -->
-
-                <div class="footer-links">
-
-                    <!-- Explore -->
-
-                    <div>
-
-                        <strong>
-                            Explore
-                        </strong>
-
-                        <a href="#events">
-                            Featured events
-                        </a>
-
-                        <a href="#upcoming">
-                            Upcoming events
-                        </a>
-
-                    </div>
-
-
-                    <!-- Evently -->
-
-                    <div>
-
-                        <strong>
-                            Evently
-                        </strong>
-
-                        <a href="#about">
-                            About us
-                        </a>
-
-                        <a href="#contact">
-                            Contact
-                        </a>
-
-                    </div>
-
-
-                    <!-- Account -->
-
-                    <div>
-
-                        <strong>
-                            Account
-                        </strong>
-
-                        <a href="login.html">
-                            Login
-                        </a>
-
-                        <a href="register.html">
-                            Register
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- Footer Bottom -->
-
-            <div class="footer-bottom">
-
-                <span>
-                    © 2026 Evently
-                </span>
-
-                <span>
-                    Made for going out and showing up.
-                </span>
-
-            </div>
-
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <span>© 2026 Evently</span>
+            <span>Made for going out and showing up.</span>
         </div>
 
-    </footer>
-
-
-    <!-- Toast -->
-
-    <div
-        class="toast"
-        id="toast"
-        role="status">
     </div>
-
-
-    <!-- ================= JAVASCRIPT ================= -->
-
-    <script>
-
-        const eventGrid =
-            document.getElementById('eventGrid');
-
-
-        /* ================= IMAGE SETS ================= */
-
-        const imageSets = [
-
-            {
-                words: /food|market|drink|dinner|brunch|cook/i,
-                label: 'Food & drink',
-                images: [
-                    'photo-1555939594-58d7cb561ad1',
-                    'photo-1517248135467-4c7edcad34c4',
-                    'photo-1414235077428-338989a2e8c0'
-                ]
-            },
-
-            {
-                words: /workshop|art|craft|design|creative|paint/i,
-                label: 'Arts & workshop',
-                images: [
-                    'photo-1455390582262-044cdead277a',
-                    'photo-1513364776144-60967b0f800f',
-                    'photo-1460661419201-fd4cecdf8a8b'
-                ]
-            },
-
-            {
-                words: /music|concert|band|dj|festival/i,
-                label: 'Live music',
-                images: [
-                    'photo-1501386761578-eac5c94b800a',
-                    'photo-1516280440614-37939bbacd81',
-                    'photo-1506157786151-b8491531f063'
-                ]
-            },
-
-            {
-                words: /yoga|fitness|run|wellness|meditation/i,
-                label: 'Wellness',
-                images: [
-                    'photo-1544367567-0f2fcb009e0b',
-                    'photo-1518611012118-696072aa579a',
-                    'photo-1517836357463-d25dfeac3438'
-                ]
-            },
-
-            {
-                words: /film|cinema|movie|screen/i,
-                label: 'Film & cinema',
-                images: [
-                    'photo-1489599849927-2ee91cede3ba',
-                    'photo-1478720568477-152d9b164e26',
-                    'photo-1517604931442-7e0c8ed2963c'
-                ]
-            },
-
-            {
-                words: /market|community|social|meetup/i,
-                label: 'Community',
-                images: [
-                    'photo-1511632765486-a01980e01a18',
-                    'photo-1529156069898-49953e39b3ac',
-                    'photo-1517457373958-b7bdd4587205'
-                ]
-            }
-
-        ];
-
-
-        /* ================= DATE ================= */
-
-        function eventDate(value, time) {
-
-            if (!value) {
-                return 'Date to be announced';
-            }
-
-            const parsed = new Date(value);
-
-            if (Number.isNaN(parsed.getTime())) {
-
-                return `${value}${time ? ` · ${time}` : ''}`;
-
-            }
-
-            return `${new Intl.DateTimeFormat(
-                'en',
-                {
-                    weekday: 'short',
-                    month: 'short',
-                    day: 'numeric'
-                }
-            ).format(parsed)}${time ? ` · ${time}` : ''}`;
-
-        }
-
-
-        /* ================= EVENT IMAGE ================= */
-
-        function eventImage(event, index) {
-
-            const text =
-                `${event.name || ''} ${event.description || ''}`;
-
-            const set =
-                imageSets.find(
-                    (item) => item.words.test(text)
-                ) ||
-                imageSets[index % imageSets.length];
-
-            const imageId =
-                set.images[index % set.images.length];
-
-            return {
-
-                url:
-                    `https://images.unsplash.com/${imageId}?auto=format&fit=crop&w=700&q=80`,
-
-                label:
-                    set.label
-
-            };
-
-        }
-
-
-        /* ================= EVENT CARD ================= */
-
-        function renderEventCard(event, index) {
-
-            const card =
-                document.createElement('article');
-
-            card.className =
-                'event-card';
-
-            card.dataset.search =
-                `${event.name || ''} ${event.location || ''} ${event.description || ''}`
-                    .toLowerCase();
-
-
-            const photo =
-                document.createElement('div');
-
-            photo.className =
-                'event-photo';
-
-
-            const image =
-                eventImage(event, index);
-
-            photo.style.backgroundImage =
-                `url("${image.url}")`;
-
-
-            const tag =
-                document.createElement('span');
-
-            tag.className =
-                'tag';
-
-            tag.textContent =
-                image.label;
-
-            photo.append(tag);
-
-
-            const info =
-                document.createElement('div');
-
-            info.className =
-                'event-info';
-
-
-            const date =
-                document.createElement('span');
-
-            date.className =
-                'event-date';
-
-            date.textContent =
-                eventDate(
-                    event.date,
-                    event.time
-                );
-
-
-            const title =
-                document.createElement('h3');
-
-            title.textContent =
-                event.name ||
-                'Untitled event';
-
-
-            const venue =
-                document.createElement('span');
-
-            venue.className =
-                'event-meta';
-
-            venue.textContent =
-                `⌖ ${event.location || 'Venue to be announced'}`;
-
-
-            const description =
-                document.createElement('span');
-
-            description.className =
-                'event-meta';
-
-            description.textContent =
-                event.description ||
-                'Open for registration';
-
-
-            info.append(
-                date,
-                title,
-                venue,
-                description
-            );
-
-
-            if (
-                event.status &&
-                event.status.toUpperCase() !== 'APPROVED'
-            ) {
-
-                const status =
-                    document.createElement('span');
-
-                status.className =
-                    'event-meta';
-
-                status.textContent =
-                    `Approval status: ${event.status}`;
-
-                info.append(status);
-
-            }
-
-
-            card.append(
-                photo,
-                info
-            );
-
-            return card;
-
-        }
-
-
-        /* ================= UPCOMING ================= */
-
-        function renderUpcoming(events) {
-
-            const list =
-                document.getElementById(
-                    'upcomingList'
-                );
-
-            list.replaceChildren();
-
-
-            if (!events.length) {
-
-                list.innerHTML =
-                    '<p class="no-results" style="display:block">No upcoming events yet.</p>';
-
-                return;
-
-            }
-
-
-            events
-                .slice(0, 3)
-                .forEach((event) => {
-
-                    const item =
-                        document.createElement('article');
-
-                    item.className =
-                        'upcoming-item';
-
-
-                    const date =
-                        new Date(event.date);
-
-
-                    const calendar =
-                        document.createElement('div');
-
-                    calendar.className =
-                        'calendar-date';
-
-
-                    const day =
-                        document.createElement('strong');
-
-                    day.textContent =
-                        Number.isNaN(date.getTime())
-                            ? '—'
-                            : new Intl.DateTimeFormat(
-                                'en',
-                                { day: '2-digit' }
-                            ).format(date);
-
-
-                    const month =
-                        document.createElement('span');
-
-                    month.textContent =
-                        Number.isNaN(date.getTime())
-                            ? ''
-                            : new Intl.DateTimeFormat(
-                                'en',
-                                { month: 'short' }
-                            )
-                                .format(date)
-                                .toUpperCase();
-
-
-                    calendar.append(
-                        day,
-                        month
-                    );
-
-
-                    const info =
-                        document.createElement('div');
-
-                    info.className =
-                        'upcoming-info';
-
-
-                    const title =
-                        document.createElement('h3');
-
-                    title.textContent =
-                        event.name ||
-                        'Untitled event';
-
-
-                    const place =
-                        document.createElement('p');
-
-                    place.textContent =
-                        `${event.location || 'Venue to be announced'}${event.time ? ` · ${event.time}` : ''}`;
-
-
-                    info.append(
-                        title,
-                        place
-                    );
-
-
-                    item.append(
-                        calendar,
-                        info
-                    );
-
-                    list.append(item);
-
-                });
-
-        }
-
-
-        /* =====================================================
-           RAILWAY FIX
-           =====================================================
-
-           IMPORTANT:
-
-           DO NOT USE:
-
-           http://localhost:8080/api/events
-
-           because Railway users will have their own localhost.
-
-           Relative API URLs work both locally and on Railway.
-        */
-
-
-        fetch('/api/events')
-
-            .then((response) => {
-
-                if (!response.ok) {
-
-                    throw new Error(
-                        `HTTP ${response.status}`
-                    );
-
-                }
-
-                return response.json();
-
-            })
-
-            .then(async (publishedEvents) => {
-
-                let events =
-                    Array.isArray(publishedEvents)
-                        ? publishedEvents
-                        : [];
-
-
-                let user = null;
-
-
-                try {
-
-                    user =
-                        JSON.parse(
-                            sessionStorage.getItem(
-                                'eventlySession'
-                            ) || 'null'
-                        ) ||
-                        JSON.parse(
-                            localStorage.getItem(
-                                'eventlyUser'
-                            ) || 'null'
-                        );
-
-                } catch {
-
-                    /* Ignore invalid saved session data. */
-
-                }
-
-
-                /* ================= ORGANIZER EVENTS ================= */
-
-                if (
-                    user?.accessToken &&
-                    String(user.role || '').toUpperCase() === 'ORGANIZER'
-                ) {
-
-                    const ownResponse =
-                        await fetch(
-                            '/api/events/manage',
-                            {
-                                headers: {
-                                    Authorization:
-                                        `Bearer ${user.accessToken}`
-                                }
-                            }
-                        );
-
-
-                    if (ownResponse.ok) {
-
-                        const ownEvents =
-                            await ownResponse.json();
-
-
-                        const seen =
-                            new Set(
-                                events.map(
-                                    (item) =>
-                                        String(item.id)
-                                )
-                            );
-
-
-                        events = [
-                            ...events,
-                            ...ownEvents.filter(
-                                (item) =>
-                                    !seen.has(
-                                        String(item.id)
-                                    )
-                            )
-                        ];
-
-                    }
-
-                }
-
-
-                /* ================= SAVE EVENTS ================= */
-
-                localStorage.setItem(
-                    'eventlyEvents',
-                    JSON.stringify(events)
-                );
-
-
-                document.getElementById(
-                    'eventCount'
-                ).textContent =
-                    events.length;
-
-
-                eventGrid.replaceChildren();
-
-
-                if (!events.length) {
-
-                    eventGrid.innerHTML =
-                        '<p class="no-results" style="display:block">No published events right now. Please check back soon.</p>';
-
-                    renderUpcoming([]);
-
-                    return;
-
-                }
-
-
-                /* ================= RENDER EVENTS ================= */
-
-                events.forEach(
-                    (event, index) => {
-
-                        eventGrid.append(
-                            renderEventCard(
-                                event,
-                                index
-                            )
-                        );
-
-                    }
-                );
-
-
-                /* ================= SORT UPCOMING ================= */
-
-                const dateKey =
-                    (event) => {
-
-                        const parsed =
-                            new Date(event.date);
-
-                        return Number.isNaN(
-                            parsed.getTime()
-                        )
-                            ? Infinity
-                            : parsed.getTime();
-
-                    };
-
-
-                renderUpcoming(
-
-                    events
-                        .filter(
-                            (event) =>
-                                dateKey(event) >= Date.now()
-                        )
-                        .sort(
-                            (a, b) =>
-                                dateKey(a) -
-                                dateKey(b)
-                        )
-
-                );
-
-
-                if (window.lucide) {
-
-                    lucide.createIcons();
-
-                }
-
-            })
-
-
-            /* ================= ERROR ================= */
-
-            .catch((error) => {
-
-                console.error(
-                    'Could not load published events:',
-                    error
-                );
-
-
-                eventGrid.innerHTML =
-                    '<p class="no-results" style="display:block">Events could not be loaded. Make sure the Evently server is running, then refresh.</p>';
-
-
-                document.getElementById(
-                    'upcomingList'
-                ).innerHTML =
-                    '<p class="no-results" style="display:block">Upcoming events are unavailable.</p>';
-
-            });
-
-
-        /* ================= LUCIDE ================= */
-
-        if (window.lucide) {
-
-            lucide.createIcons();
-
-        }
-
-
-        /* ================= TOAST ================= */
-
-        const toast =
-            document.getElementById('toast');
-
-
-        const showToast =
-            (message) => {
-
-                toast.textContent =
-                    message;
-
-                toast.classList.add('show');
-
-
-                setTimeout(
-                    () =>
-                        toast.classList.remove('show'),
-                    2600
-                );
-
-            };
-
-
-        /* ================= MOBILE MENU ================= */
-
-        document
-            .getElementById('menuToggle')
-            .addEventListener(
-                'click',
-                () => {
-
-                    document
-                        .getElementById('navLinks')
-                        .classList
-                        .toggle('open');
-
-
-                    document
-                        .getElementById('navActions')
-                        .classList
-                        .toggle('open');
-
-                }
-            );
-
-
-        /* ================= SEARCH ================= */
-
-        document
-            .getElementById('searchForm')
-            .addEventListener(
-                'submit',
-                (event) => {
-
-                    event.preventDefault();
-
-
-                    const term =
-                        document
-                            .getElementById('eventSearch')
-                            .value
-                            .toLowerCase()
-                            .trim();
-
-
-                    let visible = 0;
-
-
-                    document
-                        .querySelectorAll(
-                            '.event-card'
-                        )
-                        .forEach(
-                            (card) => {
-
-                                const matches =
-                                    !term ||
-                                    card.dataset.search
-                                        .includes(term);
-
-
-                                card.style.display =
-                                    matches
-                                        ? ''
-                                        : 'none';
-
-
-                                if (matches) {
-
-                                    visible++;
-
-                                }
-
-                            }
-                        );
-
-
-                    document.getElementById(
-                        'noResults'
-                    ).style.display =
-                        visible
-                            ? 'none'
-                            : 'block';
-
-
-                    document
-                        .getElementById('events')
-                        .scrollIntoView({
-                            behavior: 'smooth'
-                        });
-
-                }
-            );
-
-
-        /* ================= RSVP ================= */
-
-        document
-            .querySelectorAll('.rsvp')
-            .forEach(
-                (button) => {
-
-                    button.addEventListener(
-                        'click',
-                        () => {
-
-                            button.textContent =
-                                'Saved';
-
-                            button.classList.add(
-                                'btn-primary'
-                            );
-
-                            showToast(
-                                'Event saved to your plans.'
-                            );
-
-                        }
-                    );
-
-                }
-            );
-
-
-        /* ================= CONTACT ================= */
-
-        document
-            .getElementById('contactForm')
-            .addEventListener(
-                'submit',
-                (event) => {
-
-                    event.preventDefault();
-
-                    event.target.reset();
-
-                    showToast(
-                        'Thanks. We will be in touch soon.'
-                    );
-
-                }
-            );
-
-    </script>
-
+</footer>
+
+	<div class="toast" id="toast" role="status"></div>
+	<script>
+		const eventGrid = document.getElementById('eventGrid');
+		const imageSets = [
+			{ words: /food|market|drink|dinner|brunch|cook/i, label: 'Food & drink', images: ['photo-1555939594-58d7cb561ad1', 'photo-1517248135467-4c7edcad34c4', 'photo-1414235077428-338989a2e8c0'] },
+			{ words: /workshop|art|craft|design|creative|paint/i, label: 'Arts & workshop', images: ['photo-1455390582262-044cdead277a', 'photo-1513364776144-60967b0f800f', 'photo-1460661419201-fd4cecdf8a8b'] },
+			{ words: /music|concert|band|dj|festival/i, label: 'Live music', images: ['photo-1501386761578-eac5c94b800a', 'photo-1516280440614-37939bbacd81', 'photo-1506157786151-b8491531f063'] },
+			{ words: /yoga|fitness|run|wellness|meditation/i, label: 'Wellness', images: ['photo-1544367567-0f2fcb009e0b', 'photo-1518611012118-696072aa579a', 'photo-1517836357463-d25dfeac3438'] },
+			{ words: /film|cinema|movie|screen/i, label: 'Film & cinema', images: ['photo-1489599849927-2ee91cede3ba', 'photo-1478720568477-152d9b164e26', 'photo-1517604931442-7e0c8ed2963c'] },
+			{ words: /market|community|social|meetup/i, label: 'Community', images: ['photo-1511632765486-a01980e01a18', 'photo-1529156069898-49953e39b3ac', 'photo-1517457373958-b7bdd4587205'] }
+		];
+		function eventDate(value, time) {
+			if (!value) return 'Date to be announced';
+			const parsed = new Date(value);
+			if (Number.isNaN(parsed.getTime())) return `${value}${time ? ` · ${time}` : ''}`;
+			return `${new Intl.DateTimeFormat('en', { weekday: 'short', month: 'short', day: 'numeric' }).format(parsed)}${time ? ` · ${time}` : ''}`;
+		}
+		function eventImage(event, index) {
+			const text = `${event.name || ''} ${event.description || ''}`;
+			const set = imageSets.find((item) => item.words.test(text)) || imageSets[index % imageSets.length];
+			return { url: `https://images.unsplash.com/${set.images[index % set.images.length]}?auto=format&fit=crop&w=700&q=80`, label: set.label };
+		}
+		function renderEventCard(event, index) {
+			const card = document.createElement('article'); card.className = 'event-card';
+			card.dataset.search = `${event.name || ''} ${event.location || ''} ${event.description || ''}`.toLowerCase();
+			const photo = document.createElement('div'); photo.className = 'event-photo';
+			const image = eventImage(event, index); photo.style.backgroundImage = `url("${image.url}")`;
+			const tag = document.createElement('span'); tag.className = 'tag'; tag.textContent = image.label; photo.append(tag);
+			const info = document.createElement('div'); info.className = 'event-info';
+			const date = document.createElement('span'); date.className = 'event-date'; date.textContent = eventDate(event.date, event.time);
+			const title = document.createElement('h3'); title.textContent = event.name || 'Untitled event';
+			const venue = document.createElement('span'); venue.className = 'event-meta'; venue.textContent = `⌖ ${event.location || 'Venue to be announced'}`;
+			const description = document.createElement('span'); description.className = 'event-meta'; description.textContent = event.description || 'Open for registration';
+			info.append(date, title, venue, description);
+			if (event.status && event.status.toUpperCase() !== 'APPROVED') { const status = document.createElement('span'); status.className = 'event-meta'; status.textContent = `Approval status: ${event.status}`; info.append(status); }
+			card.append(photo, info); return card;
+		}
+		function renderUpcoming(events) {
+			const list = document.getElementById('upcomingList'); list.replaceChildren();
+			if (!events.length) { list.innerHTML = '<p class="no-results" style="display:block">No upcoming events yet.</p>'; return; }
+			events.slice(0, 3).forEach((event) => {
+				const item = document.createElement('article'); item.className = 'upcoming-item';
+				const date = new Date(event.date); const calendar = document.createElement('div'); calendar.className = 'calendar-date';
+				const day = document.createElement('strong'); day.textContent = Number.isNaN(date.getTime()) ? '—' : new Intl.DateTimeFormat('en', { day: '2-digit' }).format(date);
+				const month = document.createElement('span'); month.textContent = Number.isNaN(date.getTime()) ? '' : new Intl.DateTimeFormat('en', { month: 'short' }).format(date).toUpperCase(); calendar.append(day, month);
+				const info = document.createElement('div'); info.className = 'upcoming-info'; const title = document.createElement('h3'); title.textContent = event.name || 'Untitled event'; const place = document.createElement('p'); place.textContent = `${event.location || 'Venue to be announced'}${event.time ? ` · ${event.time}` : ''}`; info.append(title, place); item.append(calendar, info); list.append(item);
+			});
+		}
+		fetch('http://localhost:8080/api/events').then((response) => { if (!response.ok) throw new Error(`HTTP ${response.status}`); return response.json(); }).then(async (publishedEvents) => {
+			let events = Array.isArray(publishedEvents) ? publishedEvents : [];
+			let user = null;
+			try { user = JSON.parse(sessionStorage.getItem('eventlySession') || 'null') || JSON.parse(localStorage.getItem('eventlyUser') || 'null'); } catch { /* Ignore invalid saved session data. */ }
+			if (user?.accessToken && String(user.role || '').toUpperCase() === 'ORGANIZER') {
+				const ownResponse = await fetch('http://localhost:8080/api/events/manage', { headers: { Authorization: `Bearer ${user.accessToken}` } });
+				if (ownResponse.ok) {
+					const ownEvents = await ownResponse.json();
+					const seen = new Set(events.map((item) => String(item.id)));
+					events = [...events, ...ownEvents.filter((item) => !seen.has(String(item.id)))];
+				}
+			}
+			localStorage.setItem('eventlyEvents', JSON.stringify(events));
+			document.getElementById('eventCount').textContent = events.length;
+			eventGrid.replaceChildren();
+			if (!events.length) { eventGrid.innerHTML = '<p class="no-results" style="display:block">No published events right now. Please check back soon.</p>'; renderUpcoming([]); return; }
+			events.forEach((event, index) => eventGrid.append(renderEventCard(event, index)));
+			const dateKey = (event) => { const parsed = new Date(event.date); return Number.isNaN(parsed.getTime()) ? Infinity : parsed.getTime(); };
+			renderUpcoming(events.filter((event) => dateKey(event) >= Date.now()).sort((a, b) => dateKey(a) - dateKey(b)));
+			if (window.lucide) lucide.createIcons();
+		}).catch((error) => { console.error('Could not load published events:', error); eventGrid.innerHTML = '<p class="no-results" style="display:block">Events could not be loaded. Make sure the Evently server is running, then refresh.</p>'; document.getElementById('upcomingList').innerHTML = '<p class="no-results" style="display:block">Upcoming events are unavailable.</p>'; });
+		lucide.createIcons();
+		const toast = document.getElementById('toast');
+		const showToast = (message) => { toast.textContent = message; toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 2600); };
+		document.getElementById('menuToggle').addEventListener('click', () => { document.getElementById('navLinks').classList.toggle('open'); document.getElementById('navActions').classList.toggle('open'); });
+		document.getElementById('searchForm').addEventListener('submit', (event) => { event.preventDefault(); const term = document.getElementById('eventSearch').value.toLowerCase().trim(); let visible = 0; document.querySelectorAll('.event-card').forEach((card) => { const matches = !term || card.dataset.search.includes(term); card.style.display = matches ? '' : 'none'; if (matches) visible++; }); document.getElementById('noResults').style.display = visible ? 'none' : 'block'; document.getElementById('events').scrollIntoView({ behavior: 'smooth' }); });
+		document.querySelectorAll('.rsvp').forEach((button) => button.addEventListener('click', () => { button.textContent = 'Saved'; button.classList.add('btn-primary'); showToast('Event saved to your plans.'); }));
+		document.getElementById('contactForm').addEventListener('submit', (event) => { event.preventDefault(); event.target.reset(); showToast('Thanks. We will be in touch soon.'); });
+	</script>
 </body>
-
 </html>
