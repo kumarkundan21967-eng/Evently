@@ -10,23 +10,55 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+
         http
             .authorizeHttpRequests(auth -> auth
-                // Allow static resources (CSS, JS, images, HTML)
+
+                // ==============================
+                // PUBLIC FRONTEND / STATIC FILES
+                // ==============================
                 .requestMatchers(
+                    "/",
+                    "/index.html",
+                    "/style.css",
                     "/**/*.css",
                     "/**/*.js",
+                    "/**/*.html",
                     "/**/*.png",
                     "/**/*.jpg",
                     "/**/*.jpeg",
                     "/**/*.gif",
                     "/**/*.svg",
-                    "/**/*.html"
+                    "/**/*.ico",
+                    "/**/*.webp"
                 ).permitAll()
-                // Secure other endpoints
+
+                // ==============================
+                // PUBLIC AUTH APIs
+                // ==============================
+                .requestMatchers(
+                    "/api/auth/login",
+                    "/api/auth/register",
+                    "/api/auth/bootstrap-admin"
+                ).permitAll()
+
+                // ==============================
+                // PUBLIC EVENT APIs
+                // ==============================
+                .requestMatchers(
+                    "/api/events",
+                    "/api/events/**"
+                ).permitAll()
+
+                // ==============================
+                // OTHER APIs
+                // ==============================
                 .anyRequest().authenticated()
             )
-            // Disable CSRF for simplicity (optional, depends on your app)
+
+            // ==============================
+            // CSRF
+            // ==============================
             .csrf(csrf -> csrf.disable());
 
         return http.build();
