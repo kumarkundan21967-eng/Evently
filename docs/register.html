@@ -5,78 +5,207 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="Create your Evently account.">
 	<title>Create account | Evently</title>
+
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="login.css">
 </head>
+
 <body class="auth-page register-page">
+
 	<main class="auth-shell">
 		<section class="auth-content">
+
 			<div class="auth-form-wrap">
-				<a class="auth-back" href="index.html">&larr; Back to home</a>
+
+				<a class="auth-back" href="index.html">
+					&larr; Back to home
+				</a>
+
 				<p class="eyebrow">Create your account</p>
+
 				<h2>Let’s get you out there.</h2>
-				<p class="auth-intro">Sign up free and save the events you never want to miss.</p>
+
+				<p class="auth-intro">
+					Sign up free and save the events you never want to miss.
+				</p>
+
 				<form class="auth-form" id="registerForm">
+
 					<label for="name">Full name</label>
-					<input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
+					<input
+						id="name"
+						name="name"
+						type="text"
+						autocomplete="name"
+						placeholder="Your name"
+						required
+					>
+
 					<label for="email">Email address</label>
-					<input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+					<input
+						id="email"
+						name="email"
+						type="email"
+						autocomplete="email"
+						placeholder="you@example.com"
+						required
+					>
+
 					<label for="role">Select role</label>
 					<select id="role" name="role" required>
-						<option value="" selected disabled>Choose your role</option>
+						<option value="" selected disabled>
+							Choose your role
+						</option>
 						<option value="ADMIN">Admin</option>
 						<option value="ORGANIZER">Organizer</option>
 						<option value="ATTENDEE">Attendee</option>
 					</select>
-					<div class="auth-label-row"><label for="password">Password</label><span class="password-hint">8+ characters</span></div>
-					<div class="password-field"><input id="password" name="password" type="password" autocomplete="new-password" placeholder="Create a password" minlength="8" required><button class="password-toggle" type="button" id="passwordToggle">Show</button></div>
-					<label class="remember-me"><input type="checkbox" required> <span>I agree to the Evently terms and privacy policy.</span></label>
-					<button class="btn btn-primary auth-submit" type="submit">Create account</button>
+
+					<div class="auth-label-row">
+						<label for="password">Password</label>
+						<span class="password-hint">8+ characters</span>
+					</div>
+
+					<div class="password-field">
+						<input
+							id="password"
+							name="password"
+							type="password"
+							autocomplete="new-password"
+							placeholder="Create a password"
+							minlength="8"
+							required
+						>
+
+						<button
+							class="password-toggle"
+							type="button"
+							id="passwordToggle"
+						>
+							Show
+						</button>
+					</div>
+
+					<label class="remember-me">
+						<input type="checkbox" required>
+						<span>
+							I agree to the Evently terms and privacy policy.
+						</span>
+					</label>
+
+					<button
+						class="btn btn-primary auth-submit"
+						type="submit"
+					>
+						Create account
+					</button>
+
 				</form>
+
 				<p class="auth-error" id="registerError" role="alert"></p>
-				<p class="auth-register">Already have an account? <a href="login.html">Log in</a></p>
+
+				<p class="auth-register">
+					Already have an account?
+					<a href="login.html">Log in</a>
+				</p>
+
 			</div>
+
 		</section>
 	</main>
+
 	<div class="toast" id="toast" role="status"></div>
+
 	<script>
 		const registerForm = document.getElementById('registerForm');
 		const toast = document.getElementById('toast');
+
 		registerForm.addEventListener('submit', async (event) => {
+
 			event.preventDefault();
+
 			const user = {
 				name: document.getElementById('name').value.trim(),
 				email: document.getElementById('email').value.trim().toLowerCase(),
 				password: document.getElementById('password').value,
 				role: document.getElementById('role').value
 			};
+
 			const error = document.getElementById('registerError');
+
 			try {
-				const response = await fetch('http://localhost:8080/api/auth/register', {
-					method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(user)
+
+				// Railway-compatible API URL
+				const response = await fetch('/api/auth/register', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify(user)
 				});
+
 				const result = await response.json();
-				if (!response.ok) throw new Error(result.detail || result.message || result.error || 'Account creation failed.');
-				localStorage.setItem('eventlyUser', JSON.stringify(result));
+
+				if (!response.ok) {
+					throw new Error(
+						result.detail ||
+						result.message ||
+						result.error ||
+						'Account creation failed.'
+					);
+				}
+
+				localStorage.setItem(
+					'eventlyUser',
+					JSON.stringify(result)
+				);
+
 			} catch (failure) {
-				error.textContent = failure.message || 'Could not connect to the Evently server.';
+
+				error.textContent =
+					failure.message ||
+					'Could not connect to the Evently server.';
+
 				error.style.display = 'block';
+
 				return;
 			}
+
 			error.style.display = 'none';
-			toast.textContent = 'Account created. Redirecting to login.';
+
+			toast.textContent =
+				'Account created. Redirecting to login.';
+
 			toast.classList.add('show');
-			setTimeout(() => { window.location.href = 'login.html'; }, 1400);
+
+			setTimeout(() => {
+				window.location.href = 'login.html';
+			}, 1400);
+
 		});
-		document.getElementById('passwordToggle').addEventListener('click', (event) => {
-			const password = document.getElementById('password');
-			const showPassword = password.type === 'password';
-			password.type = showPassword ? 'text' : 'password';
-			event.currentTarget.textContent = showPassword ? 'Hide' : 'Show';
-		});
+
+
+		document.getElementById('passwordToggle')
+			.addEventListener('click', (event) => {
+
+				const password =
+					document.getElementById('password');
+
+				const showPassword =
+					password.type === 'password';
+
+				password.type =
+					showPassword ? 'text' : 'password';
+
+				event.currentTarget.textContent =
+					showPassword ? 'Hide' : 'Show';
+
+			});
 	</script>
+
 </body>
 </html>
