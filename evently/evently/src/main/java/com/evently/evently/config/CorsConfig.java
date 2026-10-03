@@ -42,11 +42,8 @@ public class CorsConfig {
             @Override
             public void addResourceHandlers(ResourceHandlerRegistry registry) {
 
-                registry.addResourceHandler(
-                        "/**"
-                ).addResourceLocations(
-                        "classpath:/static/"
-                );
+                registry.addResourceHandler("/**")
+                        .addResourceLocations("classpath:/static/");
             }
 
             // ==============================
@@ -58,7 +55,8 @@ public class CorsConfig {
                 registry.addMapping("/**")
                         .allowedOrigins(
                                 "http://127.0.0.1:5500",
-                                "http://localhost:5500"
+                                "http://localhost:5500",
+                                "https://evently-production-b57e.up.railway.app"
                         )
                         .allowedMethods(
                                 "GET",
