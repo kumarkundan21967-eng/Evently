@@ -19,18 +19,16 @@ public class SecurityConfig {
                 // ==============================
                 .requestMatchers(
                     "/",
-                    "/index.html",
-                    "/style.css",
-                    "/**/*.css",
-                    "/**/*.js",
-                    "/**/*.html",
-                    "/**/*.png",
-                    "/**/*.jpg",
-                    "/**/*.jpeg",
-                    "/**/*.gif",
-                    "/**/*.svg",
-                    "/**/*.ico",
-                    "/**/*.webp"
+                    "/*.html",
+                    "/*.css",
+                    "/*.js",
+                    "/*.png",
+                    "/*.jpg",
+                    "/*.jpeg",
+                    "/*.gif",
+                    "/*.svg",
+                    "/*.ico",
+                    "/*.webp"
                 ).permitAll()
 
                 // ==============================
