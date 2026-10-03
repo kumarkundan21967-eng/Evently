@@ -30,9 +30,7 @@ public class CorsConfig {
                 registry.addInterceptor(authorizationInterceptor)
                         .addPathPatterns("/api/**")
                         .excludePathPatterns(
-                                "/api/auth/login",
-                                "/api/auth/register",
-                                "/api/auth/bootstrap-admin"
+                                "/api/auth/**"
                         );
             }
 
@@ -43,7 +41,9 @@ public class CorsConfig {
             public void addResourceHandlers(ResourceHandlerRegistry registry) {
 
                 registry.addResourceHandler("/**")
-                        .addResourceLocations("classpath:/static/");
+                        .addResourceLocations(
+                                "classpath:/static/"
+                        );
             }
 
             // ==============================
