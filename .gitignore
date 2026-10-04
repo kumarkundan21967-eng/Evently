@@ -7,9 +7,12 @@ target/
 .idea/
 
 # Local configuration / secrets
-application.properties
+application-local.properties
 application.yml
 application.yaml
+
+# Keep the deployable Spring Boot configuration in version control.
+!evently/evently/src/main/resources/application.properties
 
 # Duplicate / backup project
 evently - Copy/

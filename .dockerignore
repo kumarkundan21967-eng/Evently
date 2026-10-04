@@ -1,0 +1,8 @@
+.git
+.vscode
+.postman
+postman
+evently/evently/target
+evently/evently/backend.stdout.log
+evently/evently/backend.stderr.log
+evently/evently/error.txt

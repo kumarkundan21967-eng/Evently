@@ -2,13 +2,17 @@
 
 ## Database configuration
 
-Set these environment variables before starting Spring Boot:
+For Railway, add a MySQL service to the same project and reference its variables from the Evently service. The application accepts Railway's standard MySQL variables directly:
 
-- `DB_URL` (optional; defaults to `jdbc:mysql://localhost:3306/evently`)
-- `DB_USERNAME` (optional; defaults to `root`)
-- `DB_PASSWORD` (required; use your local MySQL password)
+- `MYSQLHOST`
+- `MYSQLPORT`
+- `MYSQLDATABASE`
+- `MYSQLUSER`
+- `MYSQLPASSWORD`
 
-The password is no longer stored in `application.properties`.
+You can instead provide `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USERNAME`, and `DB_PASSWORD`; those take precedence. `DB_URL` can override the full JDBC URL and must start with `jdbc:mysql:`. Do not use Railway's `mysql://` URL as `DB_URL` without converting it to a JDBC URL.
+
+The repository's Railway Docker build is configured at the repository root. Keep the Railway service root directory at `/` so the Dockerfile can copy the nested Maven project and its frontend assets. The runtime listens on Railway's `PORT`.
 
 ## First administrator
 
@@ -26,7 +30,7 @@ The endpoint works only while the database has no admin account. Remove `EVENTLY
 
 ## Browser session
 
-Log in through `login.html`. The browser keeps the short-lived bearer token in the active tab and sends it with API requests. Restarting the backend invalidates active sessions. Run the frontend with Live Server at `http://localhost:5500` or `http://127.0.0.1:5500`.
+Log in through `login.html`. The browser keeps the short-lived bearer token in the active tab and sends it with API requests. Restarting the backend invalidates active sessions. Run the frontend with Live Server on localhost; this selects the local backend at `http://localhost:8080`. Deployed pages use `https://evently-production-b57e.up.railway.app` as the API.
 
 Ticket booking currently creates a `BOOKED` demo reservation. A real payment gateway has not been configured, so the browser cannot mark a booking as paid.
 

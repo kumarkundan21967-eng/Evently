@@ -2,7 +2,6 @@ package com.evently.evently.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 
@@ -16,7 +15,7 @@ public class SecurityConfig {
             // ==============================
             // CORS
             // ==============================
-            .cors(Customizer.withDefaults())
+            .cors(cors -> {})
 
             // ==============================
             // AUTHORIZATION
@@ -50,18 +49,15 @@ public class SecurityConfig {
                 ).permitAll()
 
                 // ==============================
-                // PUBLIC EVENT APIs
+                // API authorization is enforced by ApiAuthorizationInterceptor,
+                // which validates the application's bearer sessions and roles.
                 // ==============================
-                .requestMatchers(
-                    "/api/events",
-                    "/api/events/**"
-                ).permitAll()
-
-                // ==============================
-                // OTHER APIs
-                // ==============================
-                .anyRequest().authenticated()
+                .requestMatchers("/api/**").permitAll()
+                .anyRequest().permitAll()
             )
+
+            .formLogin(form -> form.disable())
+            .httpBasic(basic -> basic.disable())
 
             // ==============================
             // CSRF

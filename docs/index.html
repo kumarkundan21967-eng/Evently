@@ -111,6 +111,7 @@
 </footer>
 
 	<div class="toast" id="toast" role="status"></div>
+	<script src="api-client.js"></script>
 	<script>
 		const eventGrid = document.getElementById('eventGrid');
 		const imageSets = [
@@ -158,12 +159,12 @@
 				const info = document.createElement('div'); info.className = 'upcoming-info'; const title = document.createElement('h3'); title.textContent = event.name || 'Untitled event'; const place = document.createElement('p'); place.textContent = `${event.location || 'Venue to be announced'}${event.time ? ` · ${event.time}` : ''}`; info.append(title, place); item.append(calendar, info); list.append(item);
 			});
 		}
-		fetch('http://localhost:8080/api/events').then((response) => { if (!response.ok) throw new Error(`HTTP ${response.status}`); return response.json(); }).then(async (publishedEvents) => {
+		fetch(`${window.EVENTLY_API_BASE}/api/events`).then((response) => { if (!response.ok) throw new Error(`HTTP ${response.status}`); return response.json(); }).then(async (publishedEvents) => {
 			let events = Array.isArray(publishedEvents) ? publishedEvents : [];
 			let user = null;
 			try { user = JSON.parse(sessionStorage.getItem('eventlySession') || 'null') || JSON.parse(localStorage.getItem('eventlyUser') || 'null'); } catch { /* Ignore invalid saved session data. */ }
 			if (user?.accessToken && String(user.role || '').toUpperCase() === 'ORGANIZER') {
-				const ownResponse = await fetch('http://localhost:8080/api/events/manage', { headers: { Authorization: `Bearer ${user.accessToken}` } });
+				const ownResponse = await fetch(`${window.EVENTLY_API_BASE}/api/events/manage`, { headers: { Authorization: `Bearer ${user.accessToken}` } });
 				if (ownResponse.ok) {
 					const ownEvents = await ownResponse.json();
 					const seen = new Set(events.map((item) => String(item.id)));

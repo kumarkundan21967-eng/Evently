@@ -17,7 +17,7 @@ import org.springframework.beans.factory.annotation.Value;
 @RequestMapping("/api/auth")
 
 public class AuthController {
-    private static final Set<String> ROLES = Set.of("ATTENDEE", "ORGANIZER", "ADMIN");
+    private static final Set<String> ROLES = Set.of("ATTENDEE", "ORGANIZER");
     private final UserRepository users;
     private final ActivityService activities;
     private final AuthSessionService sessions;

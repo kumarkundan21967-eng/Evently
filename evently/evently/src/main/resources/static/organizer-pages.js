@@ -7,7 +7,7 @@
 // JAVA BACKEND URL
 // =========================================================
 
-const API_URL = "http://localhost:8080/api/events";
+const API_URL = `${window.EVENTLY_API_BASE}/api/events`;
 
 
 // =========================================================

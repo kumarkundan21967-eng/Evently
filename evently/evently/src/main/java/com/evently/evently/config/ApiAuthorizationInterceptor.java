@@ -79,32 +79,6 @@ public class ApiAuthorizationInterceptor implements HandlerInterceptor {
         AuthSessionService.Session session =
                 sessions.find(token);
 
-        // ==============================
-        // DEBUG LOG
-        // ==============================
-
-        System.out.println("========== AUTH DEBUG ==========");
-        System.out.println("METHOD: " + method);
-        System.out.println("PATH: " + path);
-        System.out.println("AUTH HEADER PRESENT: " + (authorization != null));
-        System.out.println("TOKEN FOUND: " + (token != null));
-        System.out.println(
-                "SESSION FOUND: " + (session != null)
-        );
-        System.out.println(
-                "USER ID: " +
-                        (session != null ? session.userId() : "NULL")
-        );
-        System.out.println(
-                "USER EMAIL: " +
-                        (session != null ? session.email() : "NULL")
-        );
-        System.out.println(
-                "ROLE: " +
-                        (session != null ? session.role() : "NULL")
-        );
-        System.out.println("================================");
-
         // No valid session
         if (session == null) {
             return deny(response, 401, "Login required");
@@ -190,17 +164,6 @@ public class ApiAuthorizationInterceptor implements HandlerInterceptor {
                     "ORGANIZER".equalsIgnoreCase(session.role())
                             || "ADMIN".equalsIgnoreCase(session.role());
 
-            // Extra debug for event update
-            System.out.println(
-                    "EVENT UPDATE/DELETE AUTH CHECK"
-            );
-            System.out.println(
-                    "ROLE RECEIVED: " + session.role()
-            );
-            System.out.println(
-                    "ALLOWED: " + allowed
-            );
-
         // Notifications
         } else if (path.startsWith("/api/notifications")) {
 
@@ -243,14 +206,6 @@ public class ApiAuthorizationInterceptor implements HandlerInterceptor {
 
         // Final authorization check
         if (!allowed) {
-
-            System.out.println(
-                    "========== AUTHORIZATION DENIED =========="
-            );
-            System.out.println("METHOD: " + method);
-            System.out.println("PATH: " + path);
-            System.out.println("ROLE: " + session.role());
-            System.out.println("==========================================");
 
             return deny(
                     response,

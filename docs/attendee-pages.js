@@ -13,7 +13,7 @@ const attendeeUser = JSON.parse(
 // BACKEND API
 // =====================================================
 
-const API_BASE = "http://localhost:8080";
+const API_BASE = window.EVENTLY_API_BASE;
 
 
 // =====================================================

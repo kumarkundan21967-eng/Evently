@@ -17,7 +17,7 @@ public class CorsConfig {
 
     public CorsConfig(
             ApiAuthorizationInterceptor authorizationInterceptor,
-            @Value("${evently.cors.allowed-origin-patterns:http://127.0.0.1:5500,http://localhost:5500,https://*.up.railway.app}")
+            @Value("${evently.cors.allowed-origin-patterns:http://127.0.0.1:*,http://localhost:*,https://*.up.railway.app}")
             String configuredOriginPatterns) {
         this.authorizationInterceptor = authorizationInterceptor;
         this.allowedOriginPatterns = configuredOriginPatterns.split("\\s*,\\s*");

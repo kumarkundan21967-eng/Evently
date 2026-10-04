@@ -13,13 +13,13 @@ const attendeeUser = JSON.parse(
 // BACKEND API
 // =====================================================
 
-const API_BASE = "http://localhost:8080";
+const DASHBOARD_API_BASE = window.EVENTLY_API_BASE;
 
 // Organizer overview uses the same statistics endpoint and values as the
 // dedicated Statistics page. dashboard.js is loaded on this page, while
 // organizer-pages.js is loaded on the Statistics page.
 if (document.getElementById("organizerTotalEvents")) {
-    fetch(`${API_BASE}/api/events/my/statistics`)
+    fetch(`${DASHBOARD_API_BASE}/api/events/my/statistics`)
         .then((response) => {
             if (!response.ok) throw new Error(`HTTP ${response.status}`);
             return response.json();
@@ -176,7 +176,7 @@ document.addEventListener("click", async (event) => {
 
                 const response =
                     await fetch(
-                        `${API_BASE}/api/events`,
+                        `${DASHBOARD_API_BASE}/api/events`,
                         {
                             headers: getAuthHeaders()
                         }
@@ -321,7 +321,7 @@ if (featuredEventsContainer || allAttendeeEventsContainer) {
     const containers = [featuredEventsContainer, allAttendeeEventsContainer].filter(Boolean);
     containers.forEach((container) => { container.textContent = "Loading approved events..."; });
 
-    fetch(`${API_BASE}/api/events`, { headers: getAuthHeaders() })
+    fetch(`${DASHBOARD_API_BASE}/api/events`, { headers: getAuthHeaders() })
         .then((response) => {
             if (!response.ok) throw new Error(`HTTP ${response.status}`);
             return response.json();
@@ -415,7 +415,7 @@ if (document.getElementById("allEventsList")) {
 
 
     fetch(
-        `${API_BASE}/api/events`,
+        `${DASHBOARD_API_BASE}/api/events`,
         {
             headers: getAuthHeaders()
         }
@@ -597,7 +597,7 @@ if (attendeeTicketList) {
     if (!attendeeEmail) {
         attendeeTicketList.innerHTML = "<li>Please log in again to view your registrations.</li>";
     } else {
-        fetch(`${API_BASE}/api/tickets/my?email=${encodeURIComponent(attendeeEmail)}`, {
+        fetch(`${DASHBOARD_API_BASE}/api/tickets/my?email=${encodeURIComponent(attendeeEmail)}`, {
             headers: getAuthHeaders()
         })
             .then((response) => {
@@ -754,7 +754,7 @@ if (
     } else {
 
         const ticketsUrl =
-            `${API_BASE}/api/tickets/my?email=${encodeURIComponent(attendeeEmail)}`;
+            `${DASHBOARD_API_BASE}/api/tickets/my?email=${encodeURIComponent(attendeeEmail)}`;
 
 
         console.log(
@@ -954,7 +954,7 @@ if (
     } else {
 
         fetch(
-            `${API_BASE}/api/tickets/my?email=${encodeURIComponent(attendeeEmail)}`,
+            `${DASHBOARD_API_BASE}/api/tickets/my?email=${encodeURIComponent(attendeeEmail)}`,
             {
                 headers: getAuthHeaders()
             }
@@ -1099,7 +1099,7 @@ if (attendeeNotificationList) {
     if (!attendeeEmail) {
         attendeeNotificationList.innerHTML = "<li>Please log in again to view notifications.</li>";
     } else {
-        fetch(`${API_BASE}/api/notifications/my?email=${encodeURIComponent(attendeeEmail)}`, {
+        fetch(`${DASHBOARD_API_BASE}/api/notifications/my?email=${encodeURIComponent(attendeeEmail)}`, {
             headers: getAuthHeaders()
         })
             .then((response) => {
@@ -1149,7 +1149,7 @@ if (
         "profileName"
     )
 ) {
-    fetch(`${API_BASE}/api/users/me`, { headers: getAuthHeaders() })
+    fetch(`${DASHBOARD_API_BASE}/api/users/me`, { headers: getAuthHeaders() })
         .then((response) => {
             if (!response.ok) throw new Error(`HTTP ${response.status}`);
             return response.json();
@@ -1206,7 +1206,7 @@ document
 
                 const response =
                     await fetch(
-                        `${API_BASE}/api/users/me`,
+                        `${DASHBOARD_API_BASE}/api/users/me`,
                         {
                             method: "PUT",
                             headers: getAuthHeaders(),
@@ -1344,7 +1344,7 @@ if (
 
             const response =
                 await fetch(
-                    `${API_BASE}/api/events`,
+                    `${DASHBOARD_API_BASE}/api/events`,
                     {
                         headers: getAuthHeaders()
                     }
@@ -1506,7 +1506,7 @@ if (
 
             const response =
                 await fetch(
-                    `${API_BASE}/api/events/${eventId}/ticket-tiers`,
+                    `${DASHBOARD_API_BASE}/api/events/${eventId}/ticket-tiers`,
                     {
                         headers: getAuthHeaders()
                     }
@@ -1787,7 +1787,7 @@ if (
 
                 const response =
                     await fetch(
-                        `${API_BASE}/api/tickets`,
+                        `${DASHBOARD_API_BASE}/api/tickets`,
                         {
                             method: "POST",
                             headers: getAuthHeaders(),

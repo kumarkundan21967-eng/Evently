@@ -47,6 +47,7 @@
 		</section>
 	</main>
 	<div class="toast" id="toast" role="status"></div>
+	<script src="api-client.js"></script>
 	<script>
 		const loginForm = document.getElementById('loginForm');
 		const toast = document.getElementById('toast');
@@ -57,7 +58,7 @@
 			const error = document.getElementById('loginError');
 			let user;
 			try {
-				const response = await fetch('http://localhost:8080/api/auth/login', {
+				const response = await fetch(`${window.EVENTLY_API_BASE}/api/auth/login`, {
 					method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, password })
 				});
 				const result = await response.json();

@@ -118,7 +118,7 @@
 
                                     <!-- Frontend folder -->
                                     <directory>
-                                        ${project.basedir}/docs
+                                        ${project.basedir}/../../docs
                                     </directory>
 
                                     <filtering>false</filtering>
