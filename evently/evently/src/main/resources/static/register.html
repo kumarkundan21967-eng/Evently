@@ -293,8 +293,13 @@
 
                 try {
 
+                    const apiBase = window.EVENTLY_API_BASE ||
+                        (['localhost', '127.0.0.1'].includes(window.location.hostname)
+                            ? 'http://localhost:8080'
+                            : 'https://evently-production-b57e.up.railway.app');
+
                     const response = await fetch(
-                        '/api/auth/register',
+                        `${apiBase}/api/auth/register`,
                         {
                             method: 'POST',
 
@@ -444,3 +449,4 @@
 
 </body>
 </html>
+ 
