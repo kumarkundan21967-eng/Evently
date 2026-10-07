@@ -6,8 +6,7 @@
 // =========================================================
 // JAVA BACKEND URL
 // =========================================================
-
-const API_URL = `${window.EVENTLY_API_BASE}/api/events`;
+const API_URL = "https://evently-production-b57e.up.railway.app/api/events";
 
 
 // =========================================================
